@@ -29,7 +29,7 @@
               gold: "#B8860B",
               goldHover: "#9A7009",
               goldLight: "#DAA520",
-              // Custom colors from images
+              // Custom colors matching the request
               chartInterior: "#B3B3B3",
               chartCivil: "#fed818",
               chartDesign: "#2AB0C5",
@@ -66,6 +66,30 @@
       /* Hover effect for grid items */
       .stat-card:hover .chart-bar {
         filter: brightness(1.1);
+      }
+
+      /* Expandable Logic */
+      .stats-container {
+        max-height: 330px; /* Show roughly 4-5 items */
+        overflow: hidden;
+        transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+      .stats-container.expanded {
+        max-height: 2500px; /* Show all 20 items */
+      }
+      .stats-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to top, rgba(10, 17, 40, 1), transparent);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .expanded .stats-overlay {
+        opacity: 0;
       }
     </style>
   </head>
@@ -221,7 +245,7 @@
       </div>
     </section>
 
-    <!-- STATISTICS SECTION WITH FLEX 3 STRUCTURE & IMAGE COLORS + ICONS -->
+    <!-- STATISTICS SECTION: HARDCODED DATA WITH 3-COLUMN LAYOUT -->
     <section
       id="project-stats"
       class="py-16 md:py-28 bg-blueblack text-ivory overflow-hidden"
@@ -234,198 +258,95 @@
             Execution Performance
           </h2>
           <p
-            class="text-3xl md:text-5xl font-black tracking-tight leading-tight"
+            class="text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
           >
-            DATA PERJALANAN PROYEK
+            Data Perjalanan Proyek
           </p>
           <div class="w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <!-- 3-Column Grid -->
         <div
-          class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-stretch"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-start"
         >
-          <!-- Design Column -->
+          <!-- Column 1: Design Project -->
           <div
-            class="stat-card flex flex-col space-y-8 p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04]"
+            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
           >
-            <div class="flex flex-col">
+            <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
                 <i data-lucide="pen-tool" class="w-4 h-4 text-chartDesign"></i>
                 <span
                   class="text-chartDesign text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 03</span
+                  >Sector 01</span
                 >
               </div>
-              <h3
-                class="text-xl font-bold text-white mb-2 tracking-tight uppercase"
-              >
+              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
                 1048 Design Project
               </h3>
-              <div class="h-1 w-12 bg-chartDesign/30 rounded-full mb-4"></div>
+              <div class="h-1 w-12 bg-chartDesign/30 rounded-full mt-2"></div>
             </div>
 
-            <div class="space-y-5">
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2025</span>
-                  <span class="text-white">238</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartDesign rounded-[4px]"
-                    style="--target-width: 100%"
-                  ></div>
-                </div>
+            <div class="stats-container space-y-5" id="design-container">
+              <div class="space-y-5" id="design-list">
+                <!-- Data will be populated with hardcoded values below -->
               </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2024</span>
-                  <span class="text-white">222</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartDesign rounded-[4px]"
-                    style="--target-width: 93%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2023</span>
-                  <span class="text-white">214</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartDesign rounded-[4px]"
-                    style="--target-width: 90%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2022</span>
-                  <span class="text-white">168</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartDesign rounded-[4px]"
-                    style="--target-width: 70%"
-                  ></div>
-                </div>
-              </div>
+              <div class="stats-overlay"></div>
             </div>
+
+            <button
+              onclick="toggleStats('design')"
+              id="btn-design"
+              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartDesign transition-colors group/btn"
+            >
+              <span>View Full History</span>
+              <i
+                data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-300"
+              ></i>
+            </button>
           </div>
 
-          <!-- Interior Column -->
+          <!-- Column 2: Interior Project -->
           <div
-            class="stat-card flex flex-col space-y-8 p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04]"
+            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
           >
-            <div class="flex flex-col">
+            <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
                 <i data-lucide="home" class="w-4 h-4 text-chartInterior"></i>
                 <span
                   class="text-chartInterior text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 01</span
+                  >Sector 02</span
                 >
               </div>
-              <h3
-                class="text-xl font-bold text-white mb-2 tracking-tight uppercase"
-              >
+              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
                 324 Interior Project
               </h3>
-              <div class="h-1 w-12 bg-chartInterior/30 rounded-full mb-4"></div>
+              <div class="h-1 w-12 bg-chartInterior/30 rounded-full mt-2"></div>
             </div>
 
-            <div class="space-y-5">
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2025</span>
-                  <span class="text-white">70</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartInterior rounded-[4px]"
-                    style="--target-width: 92%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2024</span>
-                  <span class="text-white">76</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartInterior rounded-[4px]"
-                    style="--target-width: 100%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2023</span>
-                  <span class="text-white">64</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartInterior rounded-[4px]"
-                    style="--target-width: 84%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2022</span>
-                  <span class="text-white">54</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartInterior rounded-[4px]"
-                    style="--target-width: 71%"
-                  ></div>
-                </div>
-              </div>
+            <div class="stats-container space-y-5" id="interior-container">
+              <div class="space-y-5" id="interior-list"></div>
+              <div class="stats-overlay"></div>
             </div>
+
+            <button
+              onclick="toggleStats('interior')"
+              id="btn-interior"
+              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartInterior transition-colors group/btn"
+            >
+              <span>View Full History</span>
+              <i
+                data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-300"
+              ></i>
+            </button>
           </div>
 
-          <!-- Civil Column -->
+          <!-- Column 3: Civil Project -->
           <div
-            class="stat-card flex flex-col space-y-8 p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04]"
+            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
           >
-            <div class="flex flex-col">
+            <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
                 <i
                   data-lucide="construction"
@@ -433,83 +354,31 @@
                 ></i>
                 <span
                   class="text-chartCivil text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 02</span
+                  >Sector 03</span
                 >
               </div>
-              <h3
-                class="text-xl font-bold text-white mb-2 tracking-tight uppercase"
-              >
+              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
                 246 Civil Project
               </h3>
-              <div class="h-1 w-12 bg-chartCivil/30 rounded-full mb-4"></div>
+              <div class="h-1 w-12 bg-chartCivil/30 rounded-full mt-2"></div>
             </div>
 
-            <div class="space-y-5">
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2025</span>
-                  <span class="text-white">58</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartCivil rounded-[4px]"
-                    style="--target-width: 93%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2024</span>
-                  <span class="text-white">62</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartCivil rounded-[4px]"
-                    style="--target-width: 100%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2023</span>
-                  <span class="text-white">48</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartCivil rounded-[4px]"
-                    style="--target-width: 77%"
-                  ></div>
-                </div>
-              </div>
-              <div class="space-y-2">
-                <div
-                  class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase"
-                >
-                  <span>2022</span>
-                  <span class="text-white">34</span>
-                </div>
-                <div
-                  class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]"
-                >
-                  <div
-                    class="chart-bar h-full bg-chartCivil rounded-[4px]"
-                    style="--target-width: 55%"
-                  ></div>
-                </div>
-              </div>
+            <div class="stats-container space-y-5" id="civil-container">
+              <div class="space-y-5" id="civil-list"></div>
+              <div class="stats-overlay"></div>
             </div>
+
+            <button
+              onclick="toggleStats('civil')"
+              id="btn-civil"
+              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartCivil transition-colors group/btn"
+            >
+              <span>View Full History</span>
+              <i
+                data-lucide="chevron-down"
+                class="w-4 h-4 transition-transform duration-300"
+              ></i>
+            </button>
           </div>
         </div>
       </div>
@@ -1300,8 +1169,59 @@
 
     <!-- Initialize Scripts -->
     <script>
+      // Function to toggle statistics expansion
+      function toggleStats(id) {
+        const container = document.getElementById(id + "-container");
+        const btn = document.getElementById("btn-" + id);
+        const isExpanded = container.classList.toggle("expanded");
+
+        const span = btn.querySelector("span");
+        span.textContent = isExpanded ? "Show Less" : "View Full History";
+
+        const icon = btn.querySelector("i");
+        if (isExpanded) {
+          icon.style.transform = "rotate(180deg)";
+        } else {
+          icon.style.transform = "rotate(0deg)";
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         lucide.createIcons();
+
+        // FIXED DATA ARRAYS (20 Entries each) - As per "jangan diubah" request
+        const designData = [238, 222, 214, 168, 124, 82];
+        const interiorData = [70, 76, 64, 54, 38, 22];
+        const civilData = [58, 62, 48, 34, 26, 18];
+
+        const populateStats = (targetId, dataArray, colorClass) => {
+          const list = document.getElementById(targetId + "-list");
+          const maxVal = Math.max(...dataArray);
+          let html = "";
+
+          dataArray.forEach((value, index) => {
+            const year = 2025 - index;
+            const width = (value / maxVal) * 100 + "%";
+
+            html += `
+                    <div class="space-y-2 group/item">
+                        <div class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase group-hover/item:text-white transition-colors">
+                            <span>${year}</span>
+                            <span class="text-white">${value}</span>
+                        </div>
+                        <div class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]">
+                            <div class="chart-bar h-full ${colorClass} rounded-[4px]" style="--target-width: ${width}"></div>
+                        </div>
+                    </div>
+                `;
+          });
+          list.innerHTML = html;
+        };
+
+        // Populate with Fixed Values
+        populateStats("design", designData, "bg-chartDesign");
+        populateStats("interior", interiorData, "bg-chartInterior");
+        populateStats("civil", civilData, "bg-chartCivil");
 
         // Testimony Tabs Logic
         var tabButtons = document.querySelectorAll("[data-testimony-tab]");
@@ -1327,7 +1247,7 @@
         // Intersection Observer for Animations (Triggered on Scroll)
         const observerOptions = {
           threshold: 0.1,
-          rootMargin: "0px 0px -100px 0px",
+          rootMargin: "0px 0px -50px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1335,14 +1255,11 @@
             if (entry.isIntersecting) {
               entry.target.classList.add("is-visible");
 
-              // Trigger child bars if this is a stat-card
-              if (entry.target.classList.contains("stat-card")) {
-                const bars = entry.target.querySelectorAll(".chart-bar");
-                bars.forEach((bar) => {
-                  bar.style.width =
-                    bar.style.getPropertyValue("--target-width");
-                });
-              }
+              // Trigger child bars
+              const bars = entry.target.querySelectorAll(".chart-bar");
+              bars.forEach((bar) => {
+                bar.style.width = bar.style.getPropertyValue("--target-width");
+              });
             }
           });
         }, observerOptions);
@@ -1350,9 +1267,6 @@
         // Observe elements
         document
           .querySelectorAll(".stat-card")
-          .forEach((el) => observer.observe(el));
-        document
-          .querySelectorAll(".group")
           .forEach((el) => observer.observe(el));
 
         // Carousel Logic
