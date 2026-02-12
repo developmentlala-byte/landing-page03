@@ -53,11 +53,13 @@
         scrollbar-width: none;
       }
 
-      /* Animasi Reveal Granular */
+      /* Animasi Reveal - Kecepatan Best Practice (1s dengan Smooth Easing) */
       .reveal {
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(30px);
+        transition:
+          opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+          transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
         will-change: transform, opacity;
       }
       .reveal-visible {
@@ -68,7 +70,7 @@
       /* Animasi Bar Grafik */
       .chart-bar {
         width: 0%;
-        transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: width 1.8s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
       .is-visible .chart-bar {
         width: var(--target-width);
@@ -81,13 +83,13 @@
 
       /* Logika Ekspansi Statistik */
       .stats-container {
-        max-height: 250px; /* Tampilan awal 4 item */
+        max-height: 250px;
         overflow: hidden;
-        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
       }
       .stats-container.expanded {
-        max-height: 600px; /* Sesuai dengan 6 item */
+        max-height: 600px;
       }
       .stats-overlay {
         position: absolute;
@@ -219,7 +221,7 @@
 
         <p
           class="reveal text-base md:text-xl text-ivory/80 mb-8 max-w-2xl md:mx-auto leading-relaxed"
-          style="transition-delay: 100ms"
+          style="transition-delay: 200ms"
         >
           Di Langit-Langit ID, proyek dimulai dari angka yang jelas, desain yang
           matang, dan sistem kerja yang terukur.
@@ -230,7 +232,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="reveal hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
-          style="transition-delay: 200ms"
+          style="transition-delay: 400ms"
         >
           Mulai Proyek Anda Sekarang
           <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -262,7 +264,7 @@
               </h2>
               <p
                 class="reveal text-lg text-ivory/90 font-medium"
-                style="transition-delay: 100ms"
+                style="transition-delay: 200ms"
               >
                 Pengalaman Nyata, Bukan sekedar kata.
               </p>
@@ -271,7 +273,7 @@
             <div class="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8">
               <div
                 class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
-                style="transition-delay: 200ms"
+                style="transition-delay: 400ms"
               >
                 <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
                   5+
@@ -282,7 +284,7 @@
               </div>
               <div
                 class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
-                style="transition-delay: 300ms"
+                style="transition-delay: 600ms"
               >
                 <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
                   1000+
@@ -311,13 +313,13 @@
           </h2>
           <p
             class="reveal text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           >
             Data Perjalanan Proyek
           </p>
           <div
             class="reveal w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"
-            style="transition-delay: 200ms"
+            style="transition-delay: 400ms"
           ></div>
         </div>
 
@@ -361,7 +363,7 @@
           <!-- Sector 02: Interior -->
           <div
             class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           >
             <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
@@ -396,7 +398,7 @@
           <!-- Sector 03: Civil -->
           <div
             class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
-            style="transition-delay: 200ms"
+            style="transition-delay: 400ms"
           >
             <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
@@ -467,7 +469,7 @@
 
           <div
             class="reveal bg-white p-6 md:p-10 rounded-3xl shadow-lg flex flex-col justify-center border border-ivoryDark"
-            style="transition-delay: 150ms"
+            style="transition-delay: 200ms"
           >
             <p class="reveal font-bold text-blueblack text-lg mb-6">
               Membangun rumah tidak bisa hanya mengandalkan:
@@ -475,7 +477,7 @@
             <ul class="space-y-4">
               <li
                 class="reveal flex items-start gap-4"
-                style="transition-delay: 200ms"
+                style="transition-delay: 300ms"
               >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
@@ -488,7 +490,7 @@
               </li>
               <li
                 class="reveal flex items-start gap-4"
-                style="transition-delay: 300ms"
+                style="transition-delay: 500ms"
               >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
@@ -501,7 +503,7 @@
               </li>
               <li
                 class="reveal flex items-start gap-4"
-                style="transition-delay: 400ms"
+                style="transition-delay: 700ms"
               >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
@@ -530,7 +532,7 @@
           </h2>
           <p
             class="reveal text-ivory/70 text-base md:text-lg max-w-2xl mx-auto"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           >
             Talenta terbaik yang bekerja nyata di balik layar hunian impian
             Anda.
@@ -563,7 +565,7 @@
           </div>
           <div
             class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           >
             <img
               src="./images/Whisk_66786ff9e57cf0aabca4992e6f11eaf4dr.png"
@@ -587,7 +589,7 @@
           </div>
           <div
             class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 200ms"
+            style="transition-delay: 400ms"
           >
             <img
               src="./images/Whisk_ddf105fbfebf065be7140e41c753054fdr.png"
@@ -611,7 +613,7 @@
           </div>
           <div
             class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 300ms"
+            style="transition-delay: 600ms"
           >
             <img
               src="./images/Whisk_816ae39bc0aa2fc914045b96d185839fdr.png"
@@ -638,7 +640,7 @@
           </div>
           <div
             class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group col-span-2 md:col-span-1"
-            style="transition-delay: 400ms"
+            style="transition-delay: 800ms"
           >
             <img
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"
@@ -671,9 +673,9 @@
     <section class="py-16 md:py-24 bg-ivory overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12"
+          class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12 uppercase"
         >
-          TAHAP KERJA KAMI
+          Tahap Kerja Kami
         </h2>
         <div
           class="space-y-6 md:space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold/50 before:to-transparent"
@@ -700,7 +702,7 @@
           </div>
           <div
             class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 100ms"
+            style="transition-delay: 150ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -721,7 +723,7 @@
           </div>
           <div
             class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 200ms"
+            style="transition-delay: 300ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -741,7 +743,7 @@
           </div>
           <div
             class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 300ms"
+            style="transition-delay: 450ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -762,7 +764,7 @@
           </div>
           <div
             class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 400ms"
+            style="transition-delay: 600ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -780,7 +782,7 @@
           </div>
           <div
             class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 500ms"
+            style="transition-delay: 750ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -811,7 +813,7 @@
           </h2>
           <div
             class="reveal w-24 h-1 bg-gold mx-auto rounded-full"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           ></div>
         </div>
 
@@ -834,7 +836,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 100ms"
+              style="transition-delay: 150ms"
             >
               <img
                 src="./images/DESIGN/2.png"
@@ -844,7 +846,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 200ms"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/DESIGN/3.png"
@@ -854,7 +856,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
+              style="transition-delay: 450ms"
             >
               <img
                 src="./images/DESIGN/4.png"
@@ -884,7 +886,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 100ms"
+              style="transition-delay: 150ms"
             >
               <img
                 src="./images/PROJECT SIPIL/02.jpeg"
@@ -894,7 +896,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 200ms"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/PROJECT SIPIL/03.jpeg"
@@ -904,7 +906,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
+              style="transition-delay: 450ms"
             >
               <img
                 src="./images/PROJECT SIPIL/04.jpeg"
@@ -934,7 +936,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 100ms"
+              style="transition-delay: 150ms"
             >
               <img
                 src="./images/INTERIOR/02.jpeg"
@@ -944,7 +946,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 200ms"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/INTERIOR/03.jpg"
@@ -954,7 +956,7 @@
             </div>
             <div
               class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
+              style="transition-delay: 450ms"
             >
               <img
                 src="./images/INTERIOR/04.jpeg"
@@ -978,7 +980,7 @@
           </h2>
           <p
             class="reveal text-blueblack/60 font-medium"
-            style="transition-delay: 100ms"
+            style="transition-delay: 200ms"
           >
             Video Cinematic & Perjalanan Project
           </p>
@@ -986,7 +988,7 @@
 
         <div
           class="reveal flex justify-center mb-8"
-          style="transition-delay: 150ms"
+          style="transition-delay: 300ms"
         >
           <div class="inline-flex rounded-full bg-blueblack/5 p-1">
             <button
@@ -1006,7 +1008,7 @@
           </div>
         </div>
 
-        <div class="reveal space-y-6" style="transition-delay: 200ms">
+        <div class="reveal space-y-6" style="transition-delay: 400ms">
           <div data-testimony-panel="video">
             <div
               class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
@@ -1176,7 +1178,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="reveal hidden md:inline-flex items-center justify-center gap-3 bg-gold text-ivory px-10 py-5 rounded-full text-xl font-bold hover:bg-goldHover transition-all shadow-xl shadow-gold/20"
-          style="transition-delay: 150ms"
+          style="transition-delay: 200ms"
         >
           <i data-lucide="message-circle" class="w-6 h-6"></i>
           Chat via WhatsApp
@@ -1184,6 +1186,7 @@
 
         <div
           class="reveal mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-ivory/10 pt-8"
+          style="transition-delay: 400ms"
         >
           <div class="flex items-center gap-2">
             <i data-lucide="box" class="w-6 h-6 text-gold"></i>
@@ -1206,7 +1209,7 @@
 
         <div
           class="reveal text-center mt-8 text-xs md:text-sm text-ivory/40"
-          style="transition-delay: 200ms"
+          style="transition-delay: 600ms"
         >
           <p>
             &copy; 2026 Langit-Langit ID (@reallygreatsite). All rights
@@ -1261,7 +1264,7 @@
           });
         }
 
-        // FIXED DATA ARRAYS (Exactly 6 entries as requested)
+        // FIXED DATA ARRAYS (Exactly 6 entries per category)
         const designData = [238, 222, 214, 168, 124, 82];
         const interiorData = [70, 76, 64, 54, 38, 22];
         const civilData = [58, 62, 48, 34, 26, 18];
@@ -1291,9 +1294,9 @@
         populateStats("interior", interiorData, "bg-chartInterior");
         populateStats("civil", civilData, "bg-chartCivil");
 
-        // Reveal & Scroll Observer
+        // Intersection Observer for Granular Reveal & Charts
         const observerOptions = {
-          threshold: 0.1,
+          threshold: 0.05,
           rootMargin: "0px 0px -50px 0px",
         };
         const observer = new IntersectionObserver((entries) => {
