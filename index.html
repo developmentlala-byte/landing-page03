@@ -131,7 +131,9 @@
               >Portfolio</a
             >
             <a
-              href="#cta"
+              href="https://wa.me/6281222250143"
+              target="_blank"
+              rel="noopener noreferrer"
               class="bg-blueblack text-ivory px-6 py-2 rounded-full text-sm font-bold hover:bg-gold transition-all shadow-lg border border-transparent hover:border-gold/30"
             >
               Mulai Proyek
@@ -149,6 +151,41 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden fixed top-16 inset-x-0 bg-ivory border-b border-blueblack/10 shadow-lg z-40 hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-4 space-y-2">
+        <a
+          href="#experience"
+          class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+        >
+          Experience
+        </a>
+        <a
+          href="#sistem"
+          class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+        >
+          Sistem
+        </a>
+        <a
+          href="#portfolio"
+          class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+        >
+          Portfolio
+        </a>
+        <a
+          href="https://wa.me/6281222250143"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-3 inline-flex w-full items-center justify-center bg-blueblack text-ivory px-4 py-3 rounded-full text-sm font-bold hover:bg-gold transition-all shadow-md"
+        >
+          Konsultasi via WhatsApp
+        </a>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section
@@ -182,7 +219,9 @@
         </p>
 
         <a
-          href="#cta"
+          href="https://wa.me/6281222250143"
+          target="_blank"
+          rel="noopener noreferrer"
           class="hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
         >
           Mulai Proyek Anda Sekarang
@@ -1114,11 +1153,13 @@
         </h2>
 
         <a
-          href="mailto:hello@reallygreatsite.com"
+          href="https://wa.me/6281222250143"
+          target="_blank"
+          rel="noopener noreferrer"
           class="hidden md:inline-flex items-center justify-center gap-3 bg-gold text-ivory px-10 py-5 rounded-full text-xl font-bold hover:bg-goldHover transition-all shadow-xl shadow-gold/20"
         >
-          <i data-lucide="mail" class="w-6 h-6"></i>
-          hello@reallygreatsite.com
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+          Chat via WhatsApp
         </a>
 
         <div
@@ -1159,11 +1200,13 @@
       class="fixed bottom-0 left-0 w-full bg-blueblack/95 backdrop-blur-md border-t border-ivory/10 p-4 z-50 md:hidden pb-safe"
     >
       <a
-        href="mailto:hello@reallygreatsite.com"
+        href="https://wa.me/6281222250143"
+        target="_blank"
+        rel="noopener noreferrer"
         class="flex items-center justify-center w-full gap-2 bg-gold text-ivory py-3.5 rounded-xl font-bold text-base shadow-lg active:scale-95 transition-transform hover:bg-goldHover"
       >
         <i data-lucide="message-circle" class="w-5 h-5"></i>
-        Konsultasi Sekarang
+        Konsultasi via WhatsApp
       </a>
     </div>
 
@@ -1188,6 +1231,21 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         lucide.createIcons();
+
+        var mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        var mobileMenu = document.getElementById("mobile-menu");
+
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+          });
+
+          mobileMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+              mobileMenu.classList.add("hidden");
+            });
+          });
+        }
 
         // FIXED DATA ARRAYS (20 Entries each) - As per "jangan diubah" request
         const designData = [238, 222, 214, 168, 124, 82];
