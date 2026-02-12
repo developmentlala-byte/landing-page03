@@ -29,7 +29,6 @@
               gold: "#B8860B",
               goldHover: "#9A7009",
               goldLight: "#DAA520",
-              // Custom colors matching the request
               chartInterior: "#B3B3B3",
               chartCivil: "#fed818",
               chartDesign: "#2AB0C5",
@@ -54,7 +53,19 @@
         scrollbar-width: none;
       }
 
-      /* Animation for Chart Bars */
+      /* Animasi Reveal Granular */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animasi Bar Grafik */
       .chart-bar {
         width: 0%;
         transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -63,27 +74,27 @@
         width: var(--target-width);
       }
 
-      /* Hover effect for grid items */
+      /* Efek Hover Kartu Statistik */
       .stat-card:hover .chart-bar {
         filter: brightness(1.1);
       }
 
-      /* Expandable Logic */
+      /* Logika Ekspansi Statistik */
       .stats-container {
-        max-height: 330px; /* Show roughly 4-5 items */
+        max-height: 250px; /* Tampilan awal 4 item */
         overflow: hidden;
-        transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
       }
       .stats-container.expanded {
-        max-height: 2500px; /* Show all 20 items */
+        max-height: 600px; /* Sesuai dengan 6 item */
       }
       .stats-overlay {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 100px;
+        height: 60px;
         background: linear-gradient(to top, rgba(10, 17, 40, 1), transparent);
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -113,7 +124,6 @@
               >Langitlangit<span class="text-gold">.ID</span></span
             >
           </div>
-          <!-- Desktop Menu -->
           <div class="hidden md:flex space-x-8 items-center">
             <a
               href="#experience"
@@ -139,7 +149,6 @@
               Mulai Proyek
             </a>
           </div>
-          <!-- Mobile Menu Button -->
           <div class="md:hidden flex items-center">
             <button
               id="mobile-menu-btn"
@@ -161,21 +170,18 @@
         <a
           href="#experience"
           class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+          >Experience</a
         >
-          Experience
-        </a>
         <a
           href="#sistem"
           class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+          >Sistem</a
         >
-          Sistem
-        </a>
         <a
           href="#portfolio"
           class="block py-2 text-sm font-semibold text-blueblack hover:text-gold"
+          >Portfolio</a
         >
-          Portfolio
-        </a>
         <a
           href="https://wa.me/6281222250143"
           target="_blank"
@@ -204,7 +210,7 @@
         class="relative z-10 w-full px-4 pb-12 md:pb-0 md:px-8 max-w-7xl mx-auto text-left md:text-center"
       >
         <h1
-          class="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 text-ivory"
+          class="reveal text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 text-ivory"
         >
           BANGUN RUMAH <br />
           <span class="text-gold">TANPA DRAMA.</span><br />
@@ -212,7 +218,8 @@
         </h1>
 
         <p
-          class="text-base md:text-xl text-ivory/80 mb-8 max-w-2xl md:mx-auto leading-relaxed"
+          class="reveal text-base md:text-xl text-ivory/80 mb-8 max-w-2xl md:mx-auto leading-relaxed"
+          style="transition-delay: 100ms"
         >
           Di Langit-Langit ID, proyek dimulai dari angka yang jelas, desain yang
           matang, dan sistem kerja yang terukur.
@@ -222,7 +229,8 @@
           href="https://wa.me/6281222250143"
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
+          class="reveal hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
+          style="transition-delay: 200ms"
         >
           Mulai Proyek Anda Sekarang
           <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -234,7 +242,7 @@
     <section id="experience" class="py-12 md:py-20 bg-ivory">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="relative rounded-3xl overflow-hidden shadow-2xl border border-blueblack/5"
+          class="reveal relative rounded-3xl overflow-hidden shadow-2xl border border-blueblack/5"
         >
           <img
             src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
@@ -248,18 +256,22 @@
           >
             <div class="md:w-1/2">
               <h2
-                class="text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-gold mb-2"
+                class="reveal text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-gold mb-2"
               >
                 Work<br />Experience
               </h2>
-              <p class="text-lg text-ivory/90 font-medium">
+              <p
+                class="reveal text-lg text-ivory/90 font-medium"
+                style="transition-delay: 100ms"
+              >
                 Pengalaman Nyata, Bukan sekedar kata.
               </p>
             </div>
 
             <div class="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8">
               <div
-                class="bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                style="transition-delay: 200ms"
               >
                 <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
                   5+
@@ -269,7 +281,8 @@
                 </div>
               </div>
               <div
-                class="bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                style="transition-delay: 300ms"
               >
                 <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
                   1000+
@@ -284,7 +297,7 @@
       </div>
     </section>
 
-    <!-- STATISTICS SECTION: HARDCODED DATA WITH 3-COLUMN LAYOUT -->
+    <!-- STATISTICS SECTION -->
     <section
       id="project-stats"
       class="py-16 md:py-28 bg-blueblack text-ivory overflow-hidden"
@@ -292,24 +305,28 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 md:mb-24">
           <h2
-            class="text-sm font-bold tracking-[0.3em] text-gold uppercase mb-4 opacity-80"
+            class="reveal text-sm font-bold tracking-[0.3em] text-gold uppercase mb-4 opacity-80"
           >
             Execution Performance
           </h2>
           <p
-            class="text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
+            class="reveal text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
+            style="transition-delay: 100ms"
           >
             Data Perjalanan Proyek
           </p>
-          <div class="w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"></div>
+          <div
+            class="reveal w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"
+            style="transition-delay: 200ms"
+          ></div>
         </div>
 
         <div
           class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-start"
         >
-          <!-- Column 1: Design Project -->
+          <!-- Sector 01: Design -->
           <div
-            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
           >
             <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
@@ -324,14 +341,10 @@
               </h3>
               <div class="h-1 w-12 bg-chartDesign/30 rounded-full mt-2"></div>
             </div>
-
             <div class="stats-container space-y-5" id="design-container">
-              <div class="space-y-5" id="design-list">
-                <!-- Data will be populated with hardcoded values below -->
-              </div>
+              <div class="space-y-5" id="design-list"></div>
               <div class="stats-overlay"></div>
             </div>
-
             <button
               onclick="toggleStats('design')"
               id="btn-design"
@@ -345,9 +358,10 @@
             </button>
           </div>
 
-          <!-- Column 2: Interior Project -->
+          <!-- Sector 02: Interior -->
           <div
-            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            style="transition-delay: 100ms"
           >
             <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
@@ -362,12 +376,10 @@
               </h3>
               <div class="h-1 w-12 bg-chartInterior/30 rounded-full mt-2"></div>
             </div>
-
             <div class="stats-container space-y-5" id="interior-container">
               <div class="space-y-5" id="interior-list"></div>
               <div class="stats-overlay"></div>
             </div>
-
             <button
               onclick="toggleStats('interior')"
               id="btn-interior"
@@ -381,9 +393,10 @@
             </button>
           </div>
 
-          <!-- Column 3: Civil Project -->
+          <!-- Sector 03: Civil -->
           <div
-            class="stat-card flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            style="transition-delay: 200ms"
           >
             <div class="flex flex-col mb-8">
               <div class="flex items-center gap-2 mb-1">
@@ -401,12 +414,10 @@
               </h3>
               <div class="h-1 w-12 bg-chartCivil/30 rounded-full mt-2"></div>
             </div>
-
             <div class="stats-container space-y-5" id="civil-container">
               <div class="space-y-5" id="civil-list"></div>
               <div class="stats-overlay"></div>
             </div>
-
             <button
               onclick="toggleStats('civil')"
               id="btn-civil"
@@ -428,16 +439,15 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10 md:mb-16">
           <h2
-            class="text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack"
+            class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack"
           >
             SEMUA BUTUH <span class="text-gold">PERENCANAAN YANG MATANG</span>
           </h2>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6 items-stretch">
-          <!-- Visual -->
           <div
-            class="rounded-3xl overflow-hidden h-[300px] md:h-auto relative shadow-lg"
+            class="reveal rounded-3xl overflow-hidden h-[300px] md:h-auto relative shadow-lg"
           >
             <img
               src="./images/Gemini_Generated_Image_rowh0hrowh0hrowh.png"
@@ -455,15 +465,18 @@
             </div>
           </div>
 
-          <!-- Content -->
           <div
-            class="bg-white p-6 md:p-10 rounded-3xl shadow-lg flex flex-col justify-center border border-ivoryDark"
+            class="reveal bg-white p-6 md:p-10 rounded-3xl shadow-lg flex flex-col justify-center border border-ivoryDark"
+            style="transition-delay: 150ms"
           >
-            <p class="font-bold text-blueblack text-lg mb-6">
+            <p class="reveal font-bold text-blueblack text-lg mb-6">
               Membangun rumah tidak bisa hanya mengandalkan:
             </p>
             <ul class="space-y-4">
-              <li class="flex items-start gap-4">
+              <li
+                class="reveal flex items-start gap-4"
+                style="transition-delay: 200ms"
+              >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
                 >
@@ -473,7 +486,10 @@
                   Gambar yang sekadar terlihat bagus
                 </p>
               </li>
-              <li class="flex items-start gap-4">
+              <li
+                class="reveal flex items-start gap-4"
+                style="transition-delay: 300ms"
+              >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
                 >
@@ -483,7 +499,10 @@
                   Estimasi biaya yang kasar
                 </p>
               </li>
-              <li class="flex items-start gap-4">
+              <li
+                class="reveal flex items-start gap-4"
+                style="transition-delay: 400ms"
+              >
                 <div
                   class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
                 >
@@ -504,22 +523,23 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2
-            class="text-3xl md:text-5xl font-extrabold tracking-tight text-ivory mb-4"
+            class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-ivory mb-4"
           >
             TIM PROFESIONAL <br />
             <span class="text-gold">& SISTEM DIGITAL</span>
           </h2>
-          <p class="text-ivory/70 text-base md:text-lg max-w-2xl mx-auto">
+          <p
+            class="reveal text-ivory/70 text-base md:text-lg max-w-2xl mx-auto"
+            style="transition-delay: 100ms"
+          >
             Talenta terbaik yang bekerja nyata di balik layar hunian impian
             Anda.
           </p>
         </div>
 
-        <!-- Grid Cards -->
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-          <!-- Card 1: Survey -->
           <div
-            class="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
           >
             <img
               src="./images/Whisk_86447d52e9f920bb16a45835575019e0dr.png"
@@ -541,10 +561,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Card 2: Design -->
           <div
-            class="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            style="transition-delay: 100ms"
           >
             <img
               src="./images/Whisk_66786ff9e57cf0aabca4992e6f11eaf4dr.png"
@@ -566,10 +585,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Card 3: Estimating -->
           <div
-            class="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            style="transition-delay: 200ms"
           >
             <img
               src="./images/Whisk_ddf105fbfebf065be7140e41c753054fdr.png"
@@ -591,10 +609,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Card 4: Pengawasan -->
           <div
-            class="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            style="transition-delay: 300ms"
           >
             <img
               src="./images/Whisk_816ae39bc0aa2fc914045b96d185839fdr.png"
@@ -619,10 +636,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Card 5: Management -->
           <div
-            class="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group col-span-2 md:col-span-1"
+            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group col-span-2 md:col-span-1"
+            style="transition-delay: 400ms"
           >
             <img
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"
@@ -652,20 +668,18 @@
     </section>
 
     <!-- Tahap Kerja (Timeline) -->
-    <section class="py-16 md:py-24 bg-ivory">
+    <section class="py-16 md:py-24 bg-ivory overflow-hidden">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12"
+          class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12"
         >
           TAHAP KERJA KAMI
         </h2>
-
         <div
           class="space-y-6 md:space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold/50 before:to-transparent"
         >
-          <!-- Step 1 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -684,10 +698,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Step 2 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            style="transition-delay: 100ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -706,10 +719,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Step 3 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            style="transition-delay: 200ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -727,10 +739,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Step 4 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            style="transition-delay: 300ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -749,10 +760,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Step 5 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            style="transition-delay: 400ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -768,10 +778,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Step 6 -->
           <div
-            class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            style="transition-delay: 500ms"
           >
             <div
               class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
@@ -796,145 +805,160 @@
       <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <h2
-            class="text-3xl md:text-5xl font-extrabold text-ivory tracking-tight mb-4"
+            class="reveal text-3xl md:text-5xl font-extrabold text-ivory tracking-tight mb-4 uppercase"
           >
-            PORTFOLIO <span class="text-gold">KARYA</span>
+            Portfolio <span class="text-gold">Karya</span>
           </h2>
-          <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+          <div
+            class="reveal w-24 h-1 bg-gold mx-auto rounded-full"
+            style="transition-delay: 100ms"
+          ></div>
         </div>
 
-        <!-- 1. Design Projects -->
         <div class="mb-16">
-          <div class="flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold">01. Design Projects</h3>
+          <div class="reveal flex items-center gap-4 mb-6">
+            <h3 class="text-2xl font-bold text-gold uppercase">
+              01. Design Projects
+            </h3>
             <div class="h-[1px] bg-ivory/20 flex-grow"></div>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
             >
               <img
                 src="./images/DESIGN/1.png"
-                alt="Design 1"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 100ms"
             >
               <img
                 src="./images/DESIGN/2.png"
-                alt="Design 2"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 200ms"
             >
               <img
                 src="./images/DESIGN/3.png"
-                alt="Design 3"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/DESIGN/4.png"
-                alt="Design 4"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
           </div>
         </div>
 
-        <!-- 2. Sipil Project -->
         <div class="mb-16">
-          <div class="flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold">02. Sipil Project</h3>
+          <div class="reveal flex items-center gap-4 mb-6">
+            <h3 class="text-2xl font-bold text-gold uppercase">
+              02. Sipil Project
+            </h3>
             <div class="h-[1px] bg-ivory/20 flex-grow"></div>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
             >
               <img
                 src="./images/PROJECT SIPIL/01.jpeg"
-                alt="Sipil 1"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 100ms"
             >
               <img
                 src="./images/PROJECT SIPIL/02.jpeg"
-                alt="Sipil 2"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 200ms"
             >
               <img
                 src="./images/PROJECT SIPIL/03.jpeg"
-                alt="Sipil 3"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/PROJECT SIPIL/04.jpeg"
-                alt="Sipil 4"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
           </div>
         </div>
 
-        <!-- 3. Interior Project -->
         <div class="mb-8">
-          <div class="flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold">03. Interior Project</h3>
+          <div class="reveal flex items-center gap-4 mb-6">
+            <h3 class="text-2xl font-bold text-gold uppercase">
+              03. Interior Project
+            </h3>
             <div class="h-[1px] bg-ivory/20 flex-grow"></div>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
             >
               <img
                 src="./images/INTERIOR/01.jpg"
-                alt="Interior 1"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 100ms"
             >
               <img
                 src="./images/INTERIOR/02.jpeg"
-                alt="Interior 2"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 200ms"
             >
               <img
                 src="./images/INTERIOR/03.jpg"
-                alt="Interior 3"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
             <div
-              class="aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              style="transition-delay: 300ms"
             >
               <img
                 src="./images/INTERIOR/04.jpeg"
-                alt="Interior 4"
+                alt=""
                 class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
               />
             </div>
@@ -946,40 +970,46 @@
     <!-- Testimony Section -->
     <section class="py-12 md:py-24 bg-ivory">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-6 md:mb-10">
+        <div class="text-center mb-10">
           <h2
-            class="text-3xl md:text-5xl font-extrabold text-blueblack uppercase tracking-tight mb-2"
+            class="reveal text-3xl md:text-5xl font-extrabold text-blueblack uppercase tracking-tight mb-2"
           >
             Our <span class="text-gold">Testimony</span>
           </h2>
-          <p class="text-blueblack/60 font-medium">
+          <p
+            class="reveal text-blueblack/60 font-medium"
+            style="transition-delay: 100ms"
+          >
             Video Cinematic & Perjalanan Project
           </p>
         </div>
 
-        <div class="flex justify-center mb-6 md:mb-8">
+        <div
+          class="reveal flex justify-center mb-8"
+          style="transition-delay: 150ms"
+        >
           <div class="inline-flex rounded-full bg-blueblack/5 p-1">
             <button
               type="button"
               data-testimony-tab="video"
-              class="px-4 md:px-6 py-2 text-xs md:text-sm font-semibold rounded-full bg-blueblack text-ivory shadow-md"
+              class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full bg-blueblack text-ivory shadow-md"
             >
               Video
             </button>
             <button
               type="button"
               data-testimony-tab="image"
-              class="px-4 md:px-6 py-2 text-xs md:text-sm font-semibold rounded-full text-blueblack"
+              class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full text-blueblack"
             >
               Chat
             </button>
           </div>
         </div>
 
-        <div class="space-y-6">
+        <div class="reveal space-y-6" style="transition-delay: 200ms">
           <div data-testimony-panel="video">
             <div
-              class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
+              class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
               data-carousel="video"
             >
               <div class="absolute inset-0">
@@ -987,7 +1017,6 @@
                   <video
                     src="./videos/tests1.mp4"
                     controls
-                    preload="metadata"
                     playsinline
                     class="w-full h-full object-contain bg-black"
                   ></video>
@@ -996,33 +1025,27 @@
                   <video
                     src="./videos/tests1.1.mp4"
                     controls
-                    preload="metadata"
                     playsinline
                     class="w-full h-full object-contain bg-black"
                   ></video>
                 </div>
               </div>
-
               <button
                 type="button"
                 data-carousel-prev
-                class="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-2 md:p-3 hover:bg-blueblack transition-colors"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
               >
-                <i data-lucide="chevron-left" class="w-4 h-4 md:w-5 md:h-5"></i>
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
               </button>
               <button
                 type="button"
                 data-carousel-next
-                class="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-2 md:p-3 hover:bg-blueblack transition-colors"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
               >
-                <i
-                  data-lucide="chevron-right"
-                  class="w-4 h-4 md:w-5 md:h-5"
-                ></i>
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
               </button>
-
               <div
-                class="absolute bottom-3 md:bottom-4 inset-x-0 flex justify-center gap-2"
+                class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
               >
                 <button
                   type="button"
@@ -1042,70 +1065,64 @@
               </div>
             </div>
           </div>
-
           <div data-testimony-panel="image" class="hidden">
             <div
-              class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[95%] md:w-full md:max-w-5xl mx-auto"
+              class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[95%] md:w-full md:max-w-5xl mx-auto"
               data-carousel="image"
             >
               <div class="absolute inset-0">
                 <div class="w-full h-full" data-carousel-item>
                   <img
                     src="./testis/K1.jpeg"
-                    alt="Testimony 1"
+                    alt=""
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="w-full h-full hidden" data-carousel-item>
                   <img
                     src="./testis/K2.jpeg"
-                    alt="Testimony 2"
+                    alt=""
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="w-full h-full hidden" data-carousel-item>
                   <img
                     src="./testis/K3.jpeg"
-                    alt="Testimony 3"
+                    alt=""
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="w-full h-full hidden" data-carousel-item>
                   <img
                     src="./testis/K4.jpeg"
-                    alt="Testimony 4"
+                    alt=""
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="w-full h-full hidden" data-carousel-item>
                   <img
                     src="./testis/K5.jpeg"
-                    alt="Testimony 5"
+                    alt=""
                     class="w-full h-full object-cover"
                   />
                 </div>
               </div>
-
               <button
                 type="button"
                 data-carousel-prev
-                class="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-2 md:p-3 hover:bg-blueblack transition-colors"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
               >
-                <i data-lucide="chevron-left" class="w-4 h-4 md:w-5 md:h-5"></i>
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
               </button>
               <button
                 type="button"
                 data-carousel-next
-                class="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-2 md:p-3 hover:bg-blueblack transition-colors"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
               >
-                <i
-                  data-lucide="chevron-right"
-                  class="w-4 h-4 md:w-5 md:h-5"
-                ></i>
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
               </button>
-
               <div
-                class="absolute bottom-3 md:bottom-4 inset-x-0 flex justify-center gap-2"
+                class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
               >
                 <button
                   type="button"
@@ -1146,24 +1163,27 @@
     >
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2
-          class="text-2xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-tight"
+          class="reveal text-2xl md:text-5xl font-extrabold mb-8 leading-tight"
         >
           KAMI TIM YANG SIAP SUPPORT UNTUK <br />
-          <span class="text-gold">MEWUJUDKAN HUNIAN IMPIAN ANDA.</span>
+          <span class="text-gold uppercase"
+            >Mewujudkan Hunian Impian Anda.</span
+          >
         </h2>
 
         <a
           href="https://wa.me/6281222250143"
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden md:inline-flex items-center justify-center gap-3 bg-gold text-ivory px-10 py-5 rounded-full text-xl font-bold hover:bg-goldHover transition-all shadow-xl shadow-gold/20"
+          class="reveal hidden md:inline-flex items-center justify-center gap-3 bg-gold text-ivory px-10 py-5 rounded-full text-xl font-bold hover:bg-goldHover transition-all shadow-xl shadow-gold/20"
+          style="transition-delay: 150ms"
         >
           <i data-lucide="message-circle" class="w-6 h-6"></i>
           Chat via WhatsApp
         </a>
 
         <div
-          class="mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-ivory/10 pt-8"
+          class="reveal mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-ivory/10 pt-8"
         >
           <div class="flex items-center gap-2">
             <i data-lucide="box" class="w-6 h-6 text-gold"></i>
@@ -1171,7 +1191,6 @@
               >Langit-Langit<span class="text-gold">.ID</span></span
             >
           </div>
-
           <div class="flex gap-6 text-ivory/60">
             <a href="#" class="hover:text-gold transition-colors"
               ><i data-lucide="instagram" class="w-6 h-6"></i
@@ -1185,7 +1204,10 @@
           </div>
         </div>
 
-        <div class="text-center mt-8 text-xs md:text-sm text-ivory/40">
+        <div
+          class="reveal text-center mt-8 text-xs md:text-sm text-ivory/40"
+          style="transition-delay: 200ms"
+        >
           <p>
             &copy; 2026 Langit-Langit ID (@reallygreatsite). All rights
             reserved.
@@ -1203,7 +1225,7 @@
         href="https://wa.me/6281222250143"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center w-full gap-2 bg-gold text-ivory py-3.5 rounded-xl font-bold text-base shadow-lg active:scale-95 transition-transform hover:bg-goldHover"
+        class="flex items-center justify-center w-full gap-2 bg-gold text-ivory py-3.5 rounded-xl font-bold text-base shadow-lg active:scale-95 transition-transform"
       >
         <i data-lucide="message-circle" class="w-5 h-5"></i>
         Konsultasi via WhatsApp
@@ -1212,42 +1234,34 @@
 
     <!-- Initialize Scripts -->
     <script>
-      // Function to toggle statistics expansion
       function toggleStats(id) {
         const container = document.getElementById(id + "-container");
         const btn = document.getElementById("btn-" + id);
         const isExpanded = container.classList.toggle("expanded");
-
         const span = btn.querySelector("span");
         span.textContent = isExpanded ? "Show Less" : "View Full History";
-
         const icon = btn.querySelector("i");
-        if (isExpanded) {
-          icon.style.transform = "rotate(180deg)";
-        } else {
-          icon.style.transform = "rotate(0deg)";
-        }
+        icon.style.transform = isExpanded ? "rotate(180deg)" : "rotate(0deg)";
       }
 
       document.addEventListener("DOMContentLoaded", function () {
         lucide.createIcons();
 
-        var mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        var mobileMenu = document.getElementById("mobile-menu");
-
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
         if (mobileMenuBtn && mobileMenu) {
-          mobileMenuBtn.addEventListener("click", function () {
-            mobileMenu.classList.toggle("hidden");
-          });
-
-          mobileMenu.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-              mobileMenu.classList.add("hidden");
-            });
+          mobileMenuBtn.addEventListener("click", () =>
+            mobileMenu.classList.toggle("hidden"),
+          );
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () =>
+              mobileMenu.classList.add("hidden"),
+            );
           });
         }
 
-        // FIXED DATA ARRAYS (20 Entries each) - As per "jangan diubah" request
+        // FIXED DATA ARRAYS (Exactly 6 entries as requested)
         const designData = [238, 222, 214, 168, 124, 82];
         const interiorData = [70, 76, 64, 54, 38, 22];
         const civilData = [58, 62, 48, 34, 26, 18];
@@ -1256,111 +1270,102 @@
           const list = document.getElementById(targetId + "-list");
           const maxVal = Math.max(...dataArray);
           let html = "";
-
           dataArray.forEach((value, index) => {
             const year = 2025 - index;
             const width = (value / maxVal) * 100 + "%";
-
             html += `
-                    <div class="space-y-2 group/item">
-                        <div class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase group-hover/item:text-white transition-colors">
-                            <span>${year}</span>
-                            <span class="text-white">${value}</span>
-                        </div>
-                        <div class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]">
-                            <div class="chart-bar h-full ${colorClass} rounded-[4px]" style="--target-width: ${width}"></div>
-                        </div>
-                    </div>
-                `;
+              <div class="space-y-2 group/item">
+                <div class="flex justify-between items-center text-[11px] font-bold text-white/50 uppercase group-hover/item:text-white transition-colors">
+                  <span>${year}</span>
+                  <span class="text-white">${value}</span>
+                </div>
+                <div class="w-full h-7 bg-white/5 rounded-md overflow-hidden p-[2px]">
+                  <div class="chart-bar h-full ${colorClass} rounded-[4px]" style="--target-width: ${width}"></div>
+                </div>
+              </div>`;
           });
           list.innerHTML = html;
         };
 
-        // Populate with Fixed Values
         populateStats("design", designData, "bg-chartDesign");
         populateStats("interior", interiorData, "bg-chartInterior");
         populateStats("civil", civilData, "bg-chartCivil");
 
-        // Testimony Tabs Logic
-        var tabButtons = document.querySelectorAll("[data-testimony-tab]");
-        var tabPanels = document.querySelectorAll("[data-testimony-panel]");
-
-        tabButtons.forEach(function (button) {
-          button.addEventListener("click", function () {
-            var target = button.getAttribute("data-testimony-tab");
-            tabButtons.forEach(function (btn) {
-              btn.classList.remove("bg-blueblack", "text-ivory", "shadow-md");
-              btn.classList.add("text-blueblack");
-            });
-            button.classList.add("bg-blueblack", "text-ivory", "shadow-md");
-            tabPanels.forEach(function (panel) {
-              panel.classList.toggle(
-                "hidden",
-                panel.getAttribute("data-testimony-panel") !== target,
-              );
-            });
-          });
-        });
-
-        // Intersection Observer for Animations (Triggered on Scroll)
+        // Reveal & Scroll Observer
         const observerOptions = {
           threshold: 0.1,
           rootMargin: "0px 0px -50px 0px",
         };
-
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-
-              // Trigger child bars
-              const bars = entry.target.querySelectorAll(".chart-bar");
-              bars.forEach((bar) => {
-                bar.style.width = bar.style.getPropertyValue("--target-width");
-              });
+              if (entry.target.classList.contains("reveal")) {
+                entry.target.classList.add("reveal-visible");
+              }
+              if (entry.target.classList.contains("stat-card")) {
+                entry.target.classList.add("is-visible");
+                const bars = entry.target.querySelectorAll(".chart-bar");
+                bars.forEach(
+                  (bar) =>
+                    (bar.style.width =
+                      bar.style.getPropertyValue("--target-width")),
+                );
+              }
             }
           });
         }, observerOptions);
 
-        // Observe elements
         document
-          .querySelectorAll(".stat-card")
+          .querySelectorAll(".reveal, .stat-card")
           .forEach((el) => observer.observe(el));
+
+        // Testimony Tabs
+        const tabButtons = document.querySelectorAll("[data-testimony-tab]");
+        const tabPanels = document.querySelectorAll("[data-testimony-panel]");
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const target = button.getAttribute("data-testimony-tab");
+            tabButtons.forEach((btn) =>
+              btn.classList.remove("bg-blueblack", "text-ivory", "shadow-md"),
+            );
+            button.classList.add("bg-blueblack", "text-ivory", "shadow-md");
+            tabPanels.forEach((panel) =>
+              panel.classList.toggle(
+                "hidden",
+                panel.getAttribute("data-testimony-panel") !== target,
+              ),
+            );
+          });
+        });
 
         // Carousel Logic
         function setupCarousel(container) {
           if (!container) return;
-          var items = container.querySelectorAll("[data-carousel-item]");
+          const items = container.querySelectorAll("[data-carousel-item]");
           if (!items.length) return;
-          var currentIndex = 0;
-          var dots = container.querySelectorAll("[data-carousel-dot]");
-
-          function updateDots() {
-            dots.forEach((dot, index) => {
-              dot.classList.toggle("bg-ivory", index === currentIndex);
-              dot.classList.toggle("bg-ivory/50", index !== currentIndex);
-            });
-          }
-
-          function showSlide(index) {
+          let currentIndex = 0;
+          const dots = container.querySelectorAll("[data-carousel-dot]");
+          const updateDots = () =>
+            dots.forEach((dot, idx) =>
+              dot.classList.toggle("bg-ivory", idx === currentIndex),
+            );
+          const showSlide = (idx) => {
             items[currentIndex].classList.add("hidden");
-            currentIndex = (index + items.length) % items.length;
+            currentIndex = (idx + items.length) % items.length;
             items[currentIndex].classList.remove("hidden");
             updateDots();
-          }
-
+          };
           container
             .querySelector("[data-carousel-prev]")
             ?.addEventListener("click", () => showSlide(currentIndex - 1));
           container
             .querySelector("[data-carousel-next]")
             ?.addEventListener("click", () => showSlide(currentIndex + 1));
-          dots.forEach((dot, index) =>
-            dot.addEventListener("click", () => showSlide(index)),
+          dots.forEach((dot, idx) =>
+            dot.addEventListener("click", () => showSlide(idx)),
           );
           updateDots();
         }
-
         setupCarousel(document.querySelector('[data-carousel="video"]'));
         setupCarousel(document.querySelector('[data-carousel="image"]'));
       });
