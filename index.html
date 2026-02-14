@@ -126,7 +126,7 @@
         position: relative;
       }
       .stats-container.expanded {
-        max-height: 600px;
+        max-height: 800px;
       }
       .stats-overlay {
         position: absolute;
@@ -156,19 +156,18 @@
         z-index: 20;
         background-color: #fbf9f6;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 60px 60px;
+        border-radius: 0 0 40px 40px;
+      }
+      @media (min-width: 768px) {
+        .content-wrapper {
+          border-radius: 0 0 60px 60px;
+        }
       }
       .footer-reveal-section {
         position: sticky;
         bottom: 0;
         z-index: 10;
         height: auto;
-        min-height: 80vh;
-      }
-      @media (min-width: 768px) {
-        .footer-reveal-section {
-          min-height: 60vh;
-        }
       }
     </style>
   </head>
@@ -1058,7 +1057,7 @@
         </div>
       </section>
 
-      <!-- GALLERY SECTION: MATCHING YOUR TEAM PHOTOS -->
+      <!-- GALLERY SECTION: REFINED FOR MOBILE -->
       <section id="gallery" class="py-16 md:py-28 bg-ivory">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -1086,17 +1085,17 @@
             </p>
           </div>
 
-          <!-- Corporate Activity Gallery -->
+          <!-- Optimized Gallery Grid with 5th Image -->
           <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px]"
+            class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[300px] grid-flow-dense"
           >
-            <!-- Team Brainstorming -->
+            <!-- Large Focus Item -->
             <div
-              class="reveal gallery-item relative overflow-hidden rounded-3xl group md:col-span-2 md:row-span-2"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group col-span-2 row-span-2"
             >
               <img
                 src="./images/galery/galery-1.jpeg"
-                alt="Workspace Langitlangit"
+                alt="Workspace"
                 class="w-full h-full object-cover transition-transform duration-700"
               />
               <div
@@ -1108,76 +1107,87 @@
                 >
                   Workspace Kolaboratif
                 </h4>
-                <p class="text-ivory/70 text-xs mt-2">
-                  Arsitek dan desainer kami bekerja dalam ekosistem yang
-                  mendukung presisi tinggi.
-                </p>
               </div>
             </div>
-            <!-- Site Supervision -->
+
+            <!-- Standard Items -->
             <div
-              class="reveal gallery-item relative overflow-hidden rounded-3xl group"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group row-span-1"
               style="transition-delay: 100ms"
             >
               <img
                 src="./images/galery/galery-2.jpeg"
-                alt="Tim Sedang Diskusi"
+                alt="Internal Meeting"
                 class="w-full h-full object-cover transition-transform duration-700"
               />
               <div
                 class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4"
               >
-                <span
-                  class="text-gold font-black text-[10px] uppercase tracking-[0.2em] mb-2"
-                  >Internal Review</span
+                <p
+                  class="text-ivory font-bold text-[10px] md:text-xs uppercase"
                 >
-                <p class="text-ivory font-bold text-xs uppercase">
-                  Quality Control Setiap Konsep
+                  Quality Control
                 </p>
               </div>
             </div>
-            <!-- Architect Detail -->
+
             <div
-              class="reveal gallery-item relative overflow-hidden rounded-3xl group"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group row-span-2 md:row-span-1"
               style="transition-delay: 200ms"
             >
               <img
-                src="./images/galery/galery-3.jpeg"
-                alt="Material Selection"
+                src="./images/galery/galery-4.jpeg"
+                alt="Finishing"
                 class="w-full h-full object-cover transition-transform duration-700"
               />
               <div
                 class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4"
               >
-                <span
-                  class="text-gold font-black text-[10px] uppercase tracking-[0.2em] mb-2"
-                  >Material Sourcing</span
+                <p
+                  class="text-ivory font-bold text-[10px] md:text-xs uppercase"
                 >
-                <p class="text-ivory font-bold text-xs uppercase">
-                  Pemilihan Detail Finishing
+                  Detail Finishing
                 </p>
               </div>
             </div>
-            <!-- Client Presentation -->
+
             <div
-              class="reveal gallery-item relative overflow-hidden rounded-3xl group md:col-span-2"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group col-span-1 md:col-span-2 row-span-1"
               style="transition-delay: 300ms"
             >
               <img
-                src="./images/galery/galery-5.jpeg"
-                alt="Brainstorming Session"
+                src="./images/galery/galery-3.jpeg"
+                alt="Brainstorming"
                 class="w-full h-full object-cover transition-transform duration-700"
               />
               <div
                 class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center"
               >
                 <h4
-                  class="text-ivory font-bold text-lg uppercase tracking-widest"
+                  class="text-ivory font-bold text-sm uppercase tracking-widest"
                 >
-                  Brainstorming Sesi
+                  Brainstorming
                 </h4>
-                <p class="text-ivory/60 text-[10px] mt-1 italic">
-                  "Ide terbaik lahir dari diskusi tanpa batas."
+              </div>
+            </div>
+
+            <!-- New 5th Gallery Image to Balance Grid on Mobile -->
+            <div
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group col-span-2 row-span-1 md:hidden"
+              style="transition-delay: 400ms"
+            >
+              <img
+                src="./images/galery/galery-5.jpeg"
+                alt="Site Supervision"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4"
+              >
+                <p
+                  class="text-ivory font-bold text-[10px] md:text-xs uppercase"
+                >
+                  Site Visit
                 </p>
               </div>
             </div>
@@ -1227,7 +1237,7 @@
           <div class="reveal space-y-6" style="transition-delay: 400ms">
             <div data-testimony-panel="video">
               <div
-                class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
+                class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[95%] md:w-full md:max-w-5xl mx-auto"
                 data-carousel="video"
               >
                 <div class="absolute inset-0">
@@ -1269,11 +1279,6 @@
                     type="button"
                     data-carousel-dot
                     class="w-2.5 h-2.5 rounded-full bg-ivory"
-                  ></button>
-                  <button
-                    type="button"
-                    data-carousel-dot
-                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
                   ></button>
                   <button
                     type="button"
@@ -1376,10 +1381,10 @@
     </div>
     <!-- END MAIN CONTENT WRAPPER -->
 
-    <!-- MODERN STICKY REVEAL CTA AREA -->
+    <!-- REFINED FINAL CTA AREA (Professional spacing for mobile) -->
     <section
       id="contact-final"
-      class="footer-reveal-section bg-blueblack overflow-hidden py-24 md:py-32"
+      class="footer-reveal-section bg-blueblack overflow-hidden pt-10 lg:py-24"
     >
       <!-- Background Effects -->
       <div
@@ -1387,34 +1392,38 @@
       ></div>
 
       <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col justify-between min-h-[50vh] md:min-h-[40vh]"
+        class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 relative z-10 flex flex-col"
       >
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start"
+        >
           <div class="flex flex-col">
-            <div class="flex items-center gap-2 mb-8 group">
+            <div
+              class="flex items-center gap-2 mb-8 group md:inline-block hidden"
+            >
               <img
                 src="./images/langit-langit-logo.png"
                 alt=""
                 class="size-8 object-fill transition-transform group-hover:rotate-12"
               />
               <span
-                class="font-bold text-3xl tracking-tighter text-ivory uppercase"
+                class="font-bold text-2xl md:text-3xl tracking-tighter text-ivory uppercase"
                 >Langitlangit<span class="text-gold">.ID</span></span
               >
             </div>
 
             <h2
-              class="text-4xl md:text-6xl font-black text-ivory leading-[1.1] mb-10 uppercase tracking-tighter"
+              class="md:inline-block hidden text-3xl md:text-6xl font-black text-ivory leading-[1.1] mb-10 uppercase tracking-tighter"
             >
               SIAP MEMBANGUN <br />
               <span class="text-gold italic">TANPA DRAMA?</span>
             </h2>
 
-            <div class="flex flex-col sm:flex-row items-start gap-6">
+            <div class="flex flex-col sm:flex-row items-start gap-8 sm:mx-auto">
               <a
                 href="https://wa.me/6281222250143"
                 target="_blank"
-                class="group relative bg-gold text-ivory px-12 py-5 rounded-2xl font-bold text-lg hover:bg-goldHover transition-all flex items-center gap-3 overflow-hidden shadow-2xl shadow-gold/20"
+                class="md:flex hidden group relative bg-gold text-ivory w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-base md:text-lg hover:bg-goldHover transition-all flex items-center justify-center gap-3 overflow-hidden shadow-2xl shadow-gold/20"
               >
                 <i
                   data-lucide="message-circle"
@@ -1436,44 +1445,33 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-12 border-l border-white/5 pl-12">
-            <div>
+          <!-- Clean Contact Grid -->
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 gap-10 md:border-l md:border-white/5 md:pl-12"
+          >
+            <!-- Hidden Quick Links on Mobile to Reduce Clutter -->
+            <div class="hidden md:block">
               <h4
                 class="text-ivory font-black text-xs uppercase tracking-[0.3em] mb-8 opacity-50"
               >
-                Quick Links
+                Explore
               </h4>
               <ul class="space-y-4 text-ivory/60 text-sm font-semibold">
                 <li>
                   <a
                     href="#experience"
-                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
-                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
-                    Experience</a
+                    class="hover:text-gold transition-colors"
+                    >Experience</a
                   >
                 </li>
                 <li>
-                  <a
-                    href="#sistem"
-                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
-                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span> Our
-                    Systems</a
+                  <a href="#sistem" class="hover:text-gold transition-colors"
+                    >Our Systems</a
                   >
                 </li>
                 <li>
-                  <a
-                    href="#portfolio"
-                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
-                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
-                    Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#gallery"
-                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
-                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
-                    Inside Company</a
+                  <a href="#portfolio" class="hover:text-gold transition-colors"
+                    >Portfolio</a
                   >
                 </li>
               </ul>
@@ -1482,29 +1480,29 @@
               <h4
                 class="text-ivory font-black text-xs uppercase tracking-[0.3em] mb-8 opacity-50"
               >
-                Connect
+                Connect with Us
               </h4>
-              <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-4 mb-8">
                 <a
                   href="#"
-                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold transition-all border border-white/5"
                 >
                   <i data-lucide="instagram" class="size-5"></i>
                 </a>
                 <a
                   href="#"
-                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold transition-all border border-white/5"
                 >
                   <i data-lucide="facebook" class="size-5"></i>
                 </a>
                 <a
                   href="#"
-                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold transition-all border border-white/5"
                 >
                   <i data-lucide="youtube" class="size-5"></i>
                 </a>
               </div>
-              <div class="mt-10">
+              <div>
                 <p
                   class="text-ivory/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-2"
                 >
@@ -1518,17 +1516,17 @@
           </div>
         </div>
 
+        <!-- Copyright with Safety Buffer for Sticky Mobile Bar -->
         <div
-          class="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+          class="mt-8 pt-8 pb-5 md:pb-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <p
-            class="text-[10px] text-ivory/20 font-bold uppercase tracking-widest"
+            class="text-[10px] text-ivory/20 font-bold uppercase tracking-widest text-center md:text-left"
           >
-            &copy; 2026 Langit-Langit ID. All Rights Reserved. Crafted with
-            Excellence.
+            &copy; 2026 Langit-Langit ID. All Rights Reserved.
           </p>
           <p
-            class="text-[9px] text-ivory/20 font-black uppercase tracking-[0.4em]"
+            class="text-[9px] text-ivory/20 font-black uppercase tracking-[0.4em] md:inline-block hidden"
           >
             Creative Presentation - laladev
           </p>
