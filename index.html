@@ -90,7 +90,7 @@
         scrollbar-width: none;
       }
 
-      /* Animasi Reveal - Kecepatan Best Practice (1s dengan Smooth Easing) */
+      /* Animasi Reveal */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -141,10 +141,39 @@
       .expanded .stats-overlay {
         opacity: 0;
       }
+
+      /* Gallery Hover Effect */
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      /* Sticky Reveal Logic */
+      .content-wrapper {
+        position: relative;
+        z-index: 20;
+        background-color: #fbf9f6;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 60px 60px;
+      }
+      .footer-reveal-section {
+        position: sticky;
+        bottom: 0;
+        z-index: 10;
+        height: auto;
+        min-height: 80vh;
+      }
+      @media (min-width: 768px) {
+        .footer-reveal-section {
+          min-height: 60vh;
+        }
+      }
     </style>
   </head>
   <body
-    class="bg-ivory text-blueblack font-sans antialiased selection:bg-gold selection:text-ivory pb-20 md:pb-0"
+    class="bg-blueblack text-blueblack font-sans antialiased selection:bg-gold selection:text-ivory pb-20 md:pb-0"
   >
     <!-- Navbar -->
     <nav
@@ -232,1035 +261,1284 @@
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section
-      class="relative h-[90vh] md:h-screen w-full flex items-end md:items-center justify-center pt-16"
-    >
-      <img
-        src="./images/Gemini_Generated_Image_rowh0hrowh0hrowh.png"
-        alt=""
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-blueblack/30"
-      ></div>
-
-      <div
-        class="relative z-10 w-full px-4 pb-12 md:pb-0 md:px-8 max-w-7xl mx-auto text-left md:text-center"
+    <!-- MAIN CONTENT WRAPPER (For sticky reveal) -->
+    <div class="content-wrapper">
+      <!-- Hero Section -->
+      <section
+        class="relative h-[90vh] md:h-screen w-full flex items-end md:items-center justify-center pt-16"
       >
-        <h1
-          class="reveal text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 text-ivory"
-        >
-          BANGUN RUMAH <br />
-          <span class="text-gold">TANPA DRAMA.</span><br />
-          TANPA BIAYA KEJUTAN.
-        </h1>
-
-        <p
-          class="reveal text-base md:text-xl text-ivory/80 mb-8 max-w-2xl md:mx-auto leading-relaxed"
-          style="transition-delay: 200ms"
-        >
-          Di Langit-Langit ID, proyek dimulai dari angka yang jelas, desain yang
-          matang, dan sistem kerja yang terukur.
-        </p>
-
-        <a
-          href="https://wa.me/6281222250143"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="reveal hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
-          style="transition-delay: 400ms"
-        >
-          Mulai Proyek Anda Sekarang
-          <i data-lucide="arrow-right" class="w-5 h-5"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- Work Experience -->
-    <section id="experience" class="py-12 md:py-20 bg-ivory">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <img
+          src="./images/Gemini_Generated_Image_rowh0hrowh0hrowh.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+        />
         <div
-          class="reveal relative rounded-3xl overflow-hidden shadow-2xl border border-blueblack/5"
+          class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-blueblack/30"
+        ></div>
+
+        <div
+          class="relative z-10 w-full px-4 pb-12 md:pb-0 md:px-8 max-w-7xl mx-auto text-left md:text-center"
         >
-          <img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-blueblack/80"></div>
-
-          <div
-            class="relative z-10 p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
+          <h1
+            class="reveal text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 text-ivory"
           >
-            <div class="md:w-1/2">
-              <h2
-                class="reveal text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-gold mb-2"
-              >
-                Work<br />Experience
-              </h2>
-              <p
-                class="reveal text-lg text-ivory/90 font-medium"
-                style="transition-delay: 200ms"
-              >
-                Pengalaman Nyata, Bukan sekedar kata.
-              </p>
-            </div>
+            BANGUN RUMAH <br />
+            <span class="text-gold">TANPA DRAMA.</span><br />
+            TANPA BIAYA KEJUTAN.
+          </h1>
 
-            <div class="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8">
-              <div
-                class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
-                style="transition-delay: 400ms"
-              >
-                <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
-                  5+
-                </div>
-                <div class="text-gold text-xs md:text-sm font-bold uppercase">
-                  Tahun Pengalaman
-                </div>
-              </div>
-              <div
-                class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
-                style="transition-delay: 600ms"
-              >
-                <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
-                  1000+
-                </div>
-                <div class="text-gold text-xs md:text-sm font-bold uppercase">
-                  Rumah Terencana
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATISTICS SECTION -->
-    <section
-      id="project-stats"
-      class="py-16 md:py-28 bg-blueblack text-ivory overflow-hidden"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 md:mb-24">
-          <h2
-            class="reveal text-sm font-bold tracking-[0.3em] text-gold uppercase mb-4 opacity-80"
-          >
-            Execution Performance
-          </h2>
           <p
-            class="reveal text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
+            class="reveal text-base md:text-xl text-ivory/80 mb-8 max-w-2xl md:mx-auto leading-relaxed"
             style="transition-delay: 200ms"
           >
-            Data Perjalanan Proyek
+            Di Langit-Langit ID, proyek dimulai dari angka yang jelas, desain
+            yang matang, dan sistem kerja yang terukur.
           </p>
-          <div
-            class="reveal w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"
-            style="transition-delay: 400ms"
-          ></div>
-        </div>
 
-        <div
-          class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-start"
-        >
-          <!-- Sector 01: Design -->
-          <div
-            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
-          >
-            <div class="flex flex-col mb-8">
-              <div class="flex items-center gap-2 mb-1">
-                <i data-lucide="pen-tool" class="w-4 h-4 text-chartDesign"></i>
-                <span
-                  class="text-chartDesign text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 01</span
-                >
-              </div>
-              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
-                1048 Design Project
-              </h3>
-              <div class="h-1 w-12 bg-chartDesign/30 rounded-full mt-2"></div>
-            </div>
-            <div class="stats-container space-y-5" id="design-container">
-              <div class="space-y-5" id="design-list"></div>
-              <div class="stats-overlay"></div>
-            </div>
-            <button
-              onclick="toggleStats('design')"
-              id="btn-design"
-              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartDesign transition-colors group/btn"
-            >
-              <span>View Full History</span>
-              <i
-                data-lucide="chevron-down"
-                class="w-4 h-4 transition-transform duration-300"
-              ></i>
-            </button>
-          </div>
-
-          <!-- Sector 02: Interior -->
-          <div
-            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
-            style="transition-delay: 200ms"
-          >
-            <div class="flex flex-col mb-8">
-              <div class="flex items-center gap-2 mb-1">
-                <i data-lucide="home" class="w-4 h-4 text-chartInterior"></i>
-                <span
-                  class="text-chartInterior text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 02</span
-                >
-              </div>
-              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
-                324 Interior Project
-              </h3>
-              <div class="h-1 w-12 bg-chartInterior/30 rounded-full mt-2"></div>
-            </div>
-            <div class="stats-container space-y-5" id="interior-container">
-              <div class="space-y-5" id="interior-list"></div>
-              <div class="stats-overlay"></div>
-            </div>
-            <button
-              onclick="toggleStats('interior')"
-              id="btn-interior"
-              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartInterior transition-colors group/btn"
-            >
-              <span>View Full History</span>
-              <i
-                data-lucide="chevron-down"
-                class="w-4 h-4 transition-transform duration-300"
-              ></i>
-            </button>
-          </div>
-
-          <!-- Sector 03: Civil -->
-          <div
-            class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+          <a
+            href="https://wa.me/6281222250143"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal hidden md:inline-flex bg-gold text-ivory px-8 py-4 rounded-full font-bold text-lg hover:bg-goldHover transition-all shadow-xl shadow-gold/20 items-center justify-center gap-2"
             style="transition-delay: 400ms"
           >
-            <div class="flex flex-col mb-8">
-              <div class="flex items-center gap-2 mb-1">
-                <i
-                  data-lucide="construction"
-                  class="w-4 h-4 text-chartCivil"
-                ></i>
-                <span
-                  class="text-chartCivil text-[10px] font-bold tracking-[0.2em] uppercase"
-                  >Sector 03</span
-                >
-              </div>
-              <h3 class="text-xl font-bold text-white tracking-tight uppercase">
-                246 Civil Project
-              </h3>
-              <div class="h-1 w-12 bg-chartCivil/30 rounded-full mt-2"></div>
-            </div>
-            <div class="stats-container space-y-5" id="civil-container">
-              <div class="space-y-5" id="civil-list"></div>
-              <div class="stats-overlay"></div>
-            </div>
-            <button
-              onclick="toggleStats('civil')"
-              id="btn-civil"
-              class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartCivil transition-colors group/btn"
-            >
-              <span>View Full History</span>
-              <i
-                data-lucide="chevron-down"
-                class="w-4 h-4 transition-transform duration-300"
-              ></i>
-            </button>
-          </div>
+            Mulai Proyek Anda Sekarang
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Perencanaan Section -->
-    <section id="perencanaan" class="py-12 md:py-20 bg-ivoryDark">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10 md:mb-16">
-          <h2
-            class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack"
-          >
-            SEMUA BUTUH <span class="text-gold">PERENCANAAN YANG MATANG</span>
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6 items-stretch">
+      <!-- Work Experience -->
+      <section id="experience" class="py-12 md:py-20 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            class="reveal rounded-3xl overflow-hidden h-[300px] md:h-auto relative shadow-lg"
+            class="reveal relative rounded-3xl overflow-hidden shadow-2xl border border-blueblack/5"
           >
             <img
-              src="./images/Gemini_Generated_Image_rowh0hrowh0hrowh.png"
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80"
               alt=""
               class="absolute inset-0 w-full h-full object-cover"
             />
+            <div class="absolute inset-0 bg-blueblack/80"></div>
+
             <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack/80 to-transparent"
-            ></div>
-            <div class="absolute bottom-6 left-6 right-6">
-              <p class="text-ivory font-medium text-lg md:text-xl">
-                "Bukan sekadar bangunan. Ini tentang tempat pulang & investasi
-                jangka panjang."
-              </p>
+              class="relative z-10 p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
+            >
+              <div class="md:w-1/2">
+                <h2
+                  class="reveal text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-gold mb-2"
+                >
+                  Work<br />Experience
+                </h2>
+                <p
+                  class="reveal text-lg text-ivory/90 font-medium"
+                  style="transition-delay: 200ms"
+                >
+                  Pengalaman Nyata, Bukan sekedar kata.
+                </p>
+              </div>
+
+              <div class="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-8">
+                <div
+                  class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                  style="transition-delay: 400ms"
+                >
+                  <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
+                    5+
+                  </div>
+                  <div class="text-gold text-xs md:text-sm font-bold uppercase">
+                    Tahun Pengalaman
+                  </div>
+                </div>
+                <div
+                  class="reveal bg-ivory/10 p-4 md:p-6 rounded-2xl border border-ivory/20 backdrop-blur-sm"
+                  style="transition-delay: 600ms"
+                >
+                  <div class="text-4xl md:text-6xl font-black text-ivory mb-1">
+                    1000+
+                  </div>
+                  <div class="text-gold text-xs md:text-sm font-bold uppercase">
+                    Rumah Terencana
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATISTICS SECTION -->
+      <section
+        id="project-stats"
+        class="py-16 md:py-28 bg-blueblack text-ivory overflow-hidden"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 md:mb-24">
+            <h2
+              class="reveal text-sm font-bold tracking-[0.3em] text-gold uppercase mb-4 opacity-80"
+            >
+              Execution Performance
+            </h2>
+            <p
+              class="reveal text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase"
+              style="transition-delay: 200ms"
+            >
+              Data Perjalanan Proyek
+            </p>
+            <div
+              class="reveal w-20 h-1 bg-gold/30 mx-auto mt-6 rounded-full"
+              style="transition-delay: 400ms"
+            ></div>
           </div>
 
           <div
-            class="reveal bg-white p-6 md:p-10 rounded-3xl shadow-lg flex flex-col justify-center border border-ivoryDark"
-            style="transition-delay: 200ms"
+            class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 items-start"
           >
-            <p class="reveal font-bold text-blueblack text-lg mb-6">
-              Membangun rumah tidak bisa hanya mengandalkan:
+            <!-- Sector 01: Design -->
+            <div
+              class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+            >
+              <div class="flex flex-col mb-8">
+                <div class="flex items-center gap-2 mb-1">
+                  <i
+                    data-lucide="pen-tool"
+                    class="w-4 h-4 text-chartDesign"
+                  ></i>
+                  <span
+                    class="text-chartDesign text-[10px] font-bold tracking-[0.2em] uppercase"
+                    >Sector 01</span
+                  >
+                </div>
+                <h3
+                  class="text-xl font-bold text-white tracking-tight uppercase"
+                >
+                  1048 Design Project
+                </h3>
+                <div class="h-1 w-12 bg-chartDesign/30 rounded-full mt-2"></div>
+              </div>
+              <div class="stats-container space-y-5" id="design-container">
+                <div class="space-y-5" id="design-list"></div>
+                <div class="stats-overlay"></div>
+              </div>
+              <button
+                onclick="toggleStats('design')"
+                id="btn-design"
+                class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartDesign transition-colors group/btn"
+              >
+                <span>View Full History</span>
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 transition-transform duration-300"
+                ></i>
+              </button>
+            </div>
+
+            <!-- Sector 02: Interior -->
+            <div
+              class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+              style="transition-delay: 200ms"
+            >
+              <div class="flex flex-col mb-8">
+                <div class="flex items-center gap-2 mb-1">
+                  <i data-lucide="home" class="w-4 h-4 text-chartInterior"></i>
+                  <span
+                    class="text-chartInterior text-[10px] font-bold tracking-[0.2em] uppercase"
+                    >Sector 02</span
+                  >
+                </div>
+                <h3
+                  class="text-xl font-bold text-white tracking-tight uppercase"
+                >
+                  324 Interior Project
+                </h3>
+                <div
+                  class="h-1 w-12 bg-chartInterior/30 rounded-full mt-2"
+                ></div>
+              </div>
+              <div class="stats-container space-y-5" id="interior-container">
+                <div class="space-y-5" id="interior-list"></div>
+                <div class="stats-overlay"></div>
+              </div>
+              <button
+                onclick="toggleStats('interior')"
+                id="btn-interior"
+                class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartInterior transition-colors group/btn"
+              >
+                <span>View Full History</span>
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 transition-transform duration-300"
+                ></i>
+              </button>
+            </div>
+
+            <!-- Sector 03: Civil -->
+            <div
+              class="stat-card reveal flex flex-col p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 hover:bg-white/[0.04] group"
+              style="transition-delay: 400ms"
+            >
+              <div class="flex flex-col mb-8">
+                <div class="flex items-center gap-2 mb-1">
+                  <i
+                    data-lucide="construction"
+                    class="w-4 h-4 text-chartCivil"
+                  ></i>
+                  <span
+                    class="text-chartCivil text-[10px] font-bold tracking-[0.2em] uppercase"
+                    >Sector 03</span
+                  >
+                </div>
+                <h3
+                  class="text-xl font-bold text-white tracking-tight uppercase"
+                >
+                  246 Civil Project
+                </h3>
+                <div class="h-1 w-12 bg-chartCivil/30 rounded-full mt-2"></div>
+              </div>
+              <div class="stats-container space-y-5" id="civil-container">
+                <div class="space-y-5" id="civil-list"></div>
+                <div class="stats-overlay"></div>
+              </div>
+              <button
+                onclick="toggleStats('civil')"
+                id="btn-civil"
+                class="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-chartCivil transition-colors group/btn"
+              >
+                <span>View Full History</span>
+                <i
+                  data-lucide="chevron-down"
+                  class="w-4 h-4 transition-transform duration-300"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Perencanaan Section -->
+      <section id="perencanaan" class="py-12 md:py-20 bg-ivoryDark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10 md:mb-16">
+            <h2
+              class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack"
+            >
+              SEMUA BUTUH <span class="text-gold">PERENCANAAN YANG MATANG</span>
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6 items-stretch">
+            <div
+              class="reveal rounded-3xl overflow-hidden h-[300px] md:h-auto relative shadow-lg"
+            >
+              <img
+                src="./images/Gemini_Generated_Image_rowh0hrowh0hrowh.png"
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack/80 to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <p class="text-ivory font-medium text-lg md:text-xl">
+                  "Bukan sekadar bangunan. Ini tentang tempat pulang & investasi
+                  jangka panjang."
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal bg-white p-6 md:p-10 rounded-3xl shadow-lg flex flex-col justify-center border border-ivoryDark"
+              style="transition-delay: 200ms"
+            >
+              <p class="reveal font-bold text-blueblack text-lg mb-6">
+                Membangun rumah tidak bisa hanya mengandalkan:
+              </p>
+              <ul class="space-y-4">
+                <li
+                  class="reveal flex items-start gap-4"
+                  style="transition-delay: 300ms"
+                >
+                  <div
+                    class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                  </div>
+                  <p
+                    class="font-semibold text-blueblack/80 text-base md:text-lg"
+                  >
+                    Gambar yang sekadar terlihat bagus
+                  </p>
+                </li>
+                <li
+                  class="reveal flex items-start gap-4"
+                  style="transition-delay: 500ms"
+                >
+                  <div
+                    class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                  </div>
+                  <p
+                    class="font-semibold text-blueblack/80 text-base md:text-lg"
+                  >
+                    Estimasi biaya yang kasar
+                  </p>
+                </li>
+                <li
+                  class="reveal flex items-start gap-4"
+                  style="transition-delay: 700ms"
+                >
+                  <div
+                    class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
+                  >
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                  </div>
+                  <p
+                    class="font-semibold text-blueblack/80 text-base md:text-lg"
+                  >
+                    Keputusan yang terburu-buru
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Team & Sistem Section -->
+      <section id="sistem" class="py-16 md:py-24 bg-blueblack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2
+              class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-ivory mb-4"
+            >
+              TIM PROFESIONAL <br />
+              <span class="text-gold">& SISTEM DIGITAL</span>
+            </h2>
+            <p
+              class="reveal text-ivory/70 text-base md:text-lg max-w-2xl mx-auto"
+              style="transition-delay: 200ms"
+            >
+              Talenta terbaik yang bekerja nyata di balik layar hunian impian
+              Anda.
             </p>
-            <ul class="space-y-4">
-              <li
-                class="reveal flex items-start gap-4"
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+            <div
+              class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+            >
+              <img
+                src="./images/Whisk_86447d52e9f920bb16a45835575019e0dr.png"
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                <i data-lucide="map" class="w-6 h-6 text-gold mb-2"></i>
+                <h3
+                  class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                >
+                  Survey
+                </h3>
+                <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
+                  Personalisasi data & estimate owner
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+              style="transition-delay: 200ms"
+            >
+              <img
+                src="./images/Whisk_66786ff9e57cf0aabca4992e6f11eaf4dr.png"
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                <i data-lucide="pen-tool" class="w-6 h-6 text-gold mb-2"></i>
+                <h3
+                  class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                >
+                  Design
+                </h3>
+                <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
+                  Sistem jadwal digital tepat waktu
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+              style="transition-delay: 400ms"
+            >
+              <img
+                src="./images/Whisk_ddf105fbfebf065be7140e41c753054fdr.png"
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                <i data-lucide="calculator" class="w-6 h-6 text-gold mb-2"></i>
+                <h3
+                  class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                >
+                  Estimating
+                </h3>
+                <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
+                  Sistem digital yang akurat sesuai standart
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
+              style="transition-delay: 600ms"
+            >
+              <img
+                src="./images/Whisk_816ae39bc0aa2fc914045b96d185839fdr.png"
+                alt=""
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                <i
+                  data-lucide="clipboard-check"
+                  class="w-6 h-6 text-gold mb-2"
+                ></i>
+                <h3
+                  class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                >
+                  Pengawasan
+                </h3>
+                <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
+                  Sistem report progress realtime
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group col-span-2 md:col-span-1"
+              style="transition-delay: 800ms"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"
+                alt="Dashboard Management"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
+              ></div>
+              <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
+                <i
+                  data-lucide="monitor-smartphone"
+                  class="w-6 h-6 text-gold mb-2"
+                ></i>
+                <h3
+                  class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                >
+                  Management
+                </h3>
+                <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
+                  Sistem kontrol proyek dari hulu ke hilir
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tahap Kerja (Timeline) -->
+      <section class="py-16 md:py-24 bg-ivory overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12 uppercase"
+          >
+            Tahap Kerja Kami
+          </h2>
+          <div
+            class="space-y-6 md:space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold/50 before:to-transparent"
+          >
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                1
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">
+                  Konsultasi Zoom
+                </h3>
+                <p class="text-sm text-blueblack/70">
+                  Memahami kebutuhan, kapasitas, konsep, arah pembangunan secara
+                  matang.
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+              style="transition-delay: 150ms"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                2
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">
+                  Survei Lapangan
+                </h3>
+                <p class="text-sm text-blueblack/70">
+                  Mengecek lahan, elevasi, kontur, serta memahami personalisasi,
+                  kebutuhan spesifik, dan behaviour sehari-hari customer.
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+              style="transition-delay: 300ms"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                3
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">
+                  Proses Design
+                </h3>
+                <p class="text-sm text-blueblack/70">
+                  Zoning, layout, visualisasi 3D, dan pemilihan material
+                  terbaik.
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+              style="transition-delay: 450ms"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                4
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">
+                  Penyesuaian RAB
+                </h3>
+                <p class="text-sm text-blueblack/70">
+                  Estimasi biaya transparan, akurat, realistis, dan disepakati
+                  bersama.
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+              style="transition-delay: 600ms"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                5
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">
+                  Pembangunan
+                </h3>
+                <p class="text-sm text-blueblack/70">
+                  Pengawasan ketat, jadwal terkontrol, dan kualitas kerja
+                  terjaga.
+                </p>
+              </div>
+            </div>
+            <div
+              class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+              style="transition-delay: 750ms"
+            >
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              >
+                6
+              </div>
+              <div
+                class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              >
+                <h3 class="font-bold text-blueblack text-lg mb-1">Garansi</h3>
+                <p class="text-sm text-blueblack/70">
+                  Kualitas sesuai standar nasional dan komitmen purna jual.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO SECTION -->
+      <section id="portfolio" class="py-16 md:py-24 bg-blueblack">
+        <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2
+              class="reveal text-3xl md:text-5xl font-extrabold text-ivory tracking-tight mb-4 uppercase"
+            >
+              Portfolio <span class="text-gold">Karya</span>
+            </h2>
+            <div
+              class="reveal w-24 h-1 bg-gold mx-auto rounded-full"
+              style="transition-delay: 200ms"
+            ></div>
+          </div>
+
+          <div class="mb-16">
+            <div class="reveal flex items-center gap-4 mb-6">
+              <h3 class="text-2xl font-bold text-gold uppercase">
+                01. Design Projects
+              </h3>
+              <div class="h-[1px] bg-ivory/20 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              >
+                <img
+                  src="./images/DESIGN/1.png"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 150ms"
+              >
+                <img
+                  src="./images/DESIGN/2.png"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
                 style="transition-delay: 300ms"
               >
-                <div
-                  class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
-                >
-                  <i data-lucide="x" class="w-5 h-5"></i>
-                </div>
-                <p class="font-semibold text-blueblack/80 text-base md:text-lg">
-                  Gambar yang sekadar terlihat bagus
-                </p>
-              </li>
-              <li
-                class="reveal flex items-start gap-4"
-                style="transition-delay: 500ms"
+                <img
+                  src="./images/DESIGN/3.png"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 450ms"
               >
-                <div
-                  class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
-                >
-                  <i data-lucide="x" class="w-5 h-5"></i>
-                </div>
-                <p class="font-semibold text-blueblack/80 text-base md:text-lg">
-                  Estimasi biaya yang kasar
-                </p>
-              </li>
-              <li
-                class="reveal flex items-start gap-4"
-                style="transition-delay: 700ms"
-              >
-                <div
-                  class="bg-red-50 p-2.5 rounded-full text-gold shrink-0 mt-0.5"
-                >
-                  <i data-lucide="x" class="w-5 h-5"></i>
-                </div>
-                <p class="font-semibold text-blueblack/80 text-base md:text-lg">
-                  Keputusan yang terburu-buru
-                </p>
-              </li>
-            </ul>
+                <img
+                  src="./images/DESIGN/4.png"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Visual Team & Sistem Section -->
-    <section id="sistem" class="py-16 md:py-24 bg-blueblack">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2
-            class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-ivory mb-4"
-          >
-            TIM PROFESIONAL <br />
-            <span class="text-gold">& SISTEM DIGITAL</span>
-          </h2>
-          <p
-            class="reveal text-ivory/70 text-base md:text-lg max-w-2xl mx-auto"
-            style="transition-delay: 200ms"
-          >
-            Talenta terbaik yang bekerja nyata di balik layar hunian impian
-            Anda.
-          </p>
-        </div>
+          <div class="mb-16">
+            <div class="reveal flex items-center gap-4 mb-6">
+              <h3 class="text-2xl font-bold text-gold uppercase">
+                02. Sipil Project
+              </h3>
+              <div class="h-[1px] bg-ivory/20 flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+              >
+                <img
+                  src="./images/PROJECT SIPIL/01.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 150ms"
+              >
+                <img
+                  src="./images/PROJECT SIPIL/02.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 300ms"
+              >
+                <img
+                  src="./images/PROJECT SIPIL/03.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 450ms"
+              >
+                <img
+                  src="./images/PROJECT SIPIL/04.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-          <div
-            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-          >
-            <img
-              src="./images/Whisk_86447d52e9f920bb16a45835575019e0dr.png"
-              alt=""
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
-            ></div>
-            <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
-              <i data-lucide="map" class="w-6 h-6 text-gold mb-2"></i>
-              <h3
-                class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
-              >
-                Survey
+          <div class="mb-8">
+            <div class="reveal flex items-center gap-4 mb-6">
+              <h3 class="text-2xl font-bold text-gold uppercase">
+                03. Interior Project
               </h3>
-              <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
-                Personalisasi data & estimate owner
-              </p>
+              <div class="h-[1px] bg-ivory/20 flex-grow"></div>
             </div>
-          </div>
-          <div
-            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 200ms"
-          >
-            <img
-              src="./images/Whisk_66786ff9e57cf0aabca4992e6f11eaf4dr.png"
-              alt=""
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
-            ></div>
-            <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
-              <i data-lucide="pen-tool" class="w-6 h-6 text-gold mb-2"></i>
-              <h3
-                class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
               >
-                Design
-              </h3>
-              <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
-                Sistem jadwal digital tepat waktu
-              </p>
-            </div>
-          </div>
-          <div
-            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 400ms"
-          >
-            <img
-              src="./images/Whisk_ddf105fbfebf065be7140e41c753054fdr.png"
-              alt=""
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
-            ></div>
-            <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
-              <i data-lucide="calculator" class="w-6 h-6 text-gold mb-2"></i>
-              <h3
-                class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                <img
+                  src="./images/INTERIOR/01.jpg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 150ms"
               >
-                Estimating
-              </h3>
-              <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
-                Sistem digital yang akurat sesuai standart
-              </p>
-            </div>
-          </div>
-          <div
-            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group"
-            style="transition-delay: 600ms"
-          >
-            <img
-              src="./images/Whisk_816ae39bc0aa2fc914045b96d185839fdr.png"
-              alt=""
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
-            ></div>
-            <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
-              <i
-                data-lucide="clipboard-check"
-                class="w-6 h-6 text-gold mb-2"
-              ></i>
-              <h3
-                class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                <img
+                  src="./images/INTERIOR/02.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 300ms"
               >
-                Pengawasan
-              </h3>
-              <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
-                Sistem report progress realtime
-              </p>
-            </div>
-          </div>
-          <div
-            class="reveal relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden group col-span-2 md:col-span-1"
-            style="transition-delay: 800ms"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80"
-              alt="Dashboard Management"
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-blueblack via-blueblack/60 to-transparent opacity-90"
-            ></div>
-            <div class="absolute bottom-0 left-0 p-4 md:p-6 w-full">
-              <i
-                data-lucide="monitor-smartphone"
-                class="w-6 h-6 text-gold mb-2"
-              ></i>
-              <h3
-                class="text-lg md:text-xl font-bold text-ivory leading-tight mb-1"
+                <img
+                  src="./images/INTERIOR/03.jpg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+                style="transition-delay: 450ms"
               >
-                Management
-              </h3>
-              <p class="text-ivory/80 text-[11px] md:text-sm leading-snug">
-                Sistem kontrol proyek dari hulu ke hilir
-              </p>
+                <img
+                  src="./images/INTERIOR/04.jpeg"
+                  alt=""
+                  class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Tahap Kerja (Timeline) -->
-    <section class="py-16 md:py-24 bg-ivory overflow-hidden">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-blueblack text-center mb-12 uppercase"
-        >
-          Tahap Kerja Kami
-        </h2>
-        <div
-          class="space-y-6 md:space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold/50 before:to-transparent"
-        >
+      <!-- GALLERY SECTION: MATCHING YOUR TEAM PHOTOS -->
+      <section id="gallery" class="py-16 md:py-28 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
           >
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
-            >
-              1
-            </div>
-            <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
-            >
-              <h3 class="font-bold text-blueblack text-lg mb-1">
-                Konsultasi Zoom
-              </h3>
-              <p class="text-sm text-blueblack/70">
-                Memahami kebutuhan, kapasitas, konsep, arah pembangunan secara
-                matang.
+            <div class="max-w-xl">
+              <h2
+                class="reveal text-sm font-bold tracking-[0.3em] text-gold uppercase mb-3"
+              >
+                Behind the Scenes
+              </h2>
+              <p
+                class="reveal text-3xl md:text-5xl font-black text-blueblack leading-tight uppercase"
+              >
+                Dedikasi <br />
+                Di Balik Layar
               </p>
             </div>
+            <p
+              class="reveal text-blueblack/60 text-sm md:text-base md:text-right max-w-xs"
+              style="transition-delay: 200ms"
+            >
+              Melihat lebih dekat bagaimana tim profesional kami bekerja,
+              merancang, dan mengawasi setiap detail proyek dengan hati.
+            </p>
           </div>
+
+          <!-- Corporate Activity Gallery -->
           <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 150ms"
+            class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px]"
           >
+            <!-- Team Brainstorming -->
             <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group md:col-span-2 md:row-span-2"
             >
-              2
+              <img
+                src="./images/galery/galery-1.jpeg"
+                alt="Workspace Langitlangit"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center"
+              >
+                <i data-lucide="monitor" class="w-10 h-10 text-gold mb-4"></i>
+                <h4
+                  class="text-ivory font-bold text-xl uppercase tracking-tighter"
+                >
+                  Workspace Kolaboratif
+                </h4>
+                <p class="text-ivory/70 text-xs mt-2">
+                  Arsitek dan desainer kami bekerja dalam ekosistem yang
+                  mendukung presisi tinggi.
+                </p>
+              </div>
             </div>
+            <!-- Site Supervision -->
             <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group"
+              style="transition-delay: 100ms"
             >
-              <h3 class="font-bold text-blueblack text-lg mb-1">
-                Survei Lapangan
-              </h3>
-              <p class="text-sm text-blueblack/70">
-                Mengecek lahan, elevasi, kontur, serta memahami personalisasi,
-                kebutuhan spesifik, dan behaviour sehari-hari customer.
-              </p>
+              <img
+                src="./images/galery/galery-2.jpeg"
+                alt="Tim Sedang Diskusi"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4"
+              >
+                <span
+                  class="text-gold font-black text-[10px] uppercase tracking-[0.2em] mb-2"
+                  >Internal Review</span
+                >
+                <p class="text-ivory font-bold text-xs uppercase">
+                  Quality Control Setiap Konsep
+                </p>
+              </div>
+            </div>
+            <!-- Architect Detail -->
+            <div
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group"
+              style="transition-delay: 200ms"
+            >
+              <img
+                src="./images/galery/galery-3.jpeg"
+                alt="Material Selection"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4"
+              >
+                <span
+                  class="text-gold font-black text-[10px] uppercase tracking-[0.2em] mb-2"
+                  >Material Sourcing</span
+                >
+                <p class="text-ivory font-bold text-xs uppercase">
+                  Pemilihan Detail Finishing
+                </p>
+              </div>
+            </div>
+            <!-- Client Presentation -->
+            <div
+              class="reveal gallery-item relative overflow-hidden rounded-3xl group md:col-span-2"
+              style="transition-delay: 300ms"
+            >
+              <img
+                src="./images/galery/galery-5.jpeg"
+                alt="Brainstorming Session"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="gallery-overlay absolute inset-0 bg-blueblack/60 opacity-0 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center"
+              >
+                <h4
+                  class="text-ivory font-bold text-lg uppercase tracking-widest"
+                >
+                  Brainstorming Sesi
+                </h4>
+                <p class="text-ivory/60 text-[10px] mt-1 italic">
+                  "Ide terbaik lahir dari diskusi tanpa batas."
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Testimony Section -->
+      <section id="testis" class="py-12 md:py-24 bg-ivory">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <h2
+              class="reveal text-3xl md:text-5xl font-extrabold text-blueblack uppercase tracking-tight mb-2"
+            >
+              Our <span class="text-gold">Testimony</span>
+            </h2>
+            <p
+              class="reveal text-blueblack/60 font-medium"
+              style="transition-delay: 200ms"
+            >
+              Video Cinematic & Perjalanan Project
+            </p>
+          </div>
+
           <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+            class="reveal flex justify-center mb-8"
             style="transition-delay: 300ms"
           >
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
-            >
-              3
-            </div>
-            <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
-            >
-              <h3 class="font-bold text-blueblack text-lg mb-1">
-                Proses Design
-              </h3>
-              <p class="text-sm text-blueblack/70">
-                Zoning, layout, visualisasi 3D, dan pemilihan material terbaik.
-              </p>
-            </div>
-          </div>
-          <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 450ms"
-          >
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
-            >
-              4
-            </div>
-            <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
-            >
-              <h3 class="font-bold text-blueblack text-lg mb-1">
-                Penyesuaian RAB
-              </h3>
-              <p class="text-sm text-blueblack/70">
-                Estimasi biaya transparan, akurat, realistis, dan disepakati
-                bersama.
-              </p>
+            <div class="inline-flex rounded-full bg-blueblack/5 p-1">
+              <button
+                type="button"
+                data-testimony-tab="video"
+                class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full bg-blueblack text-ivory shadow-md"
+              >
+                Video
+              </button>
+              <button
+                type="button"
+                data-testimony-tab="image"
+                class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full text-blueblack"
+              >
+                Chat
+              </button>
             </div>
           </div>
-          <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 600ms"
-          >
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
-            >
-              5
+
+          <div class="reveal space-y-6" style="transition-delay: 400ms">
+            <div data-testimony-panel="video">
+              <div
+                class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
+                data-carousel="video"
+              >
+                <div class="absolute inset-0">
+                  <div class="w-full h-full" data-carousel-item>
+                    <video
+                      src="./videos/tests1.mp4"
+                      controls
+                      playsinline
+                      class="w-full h-full object-contain bg-black"
+                    ></video>
+                  </div>
+                  <div class="w-full h-full hidden" data-carousel-item>
+                    <video
+                      src="./videos/tests1.1.mp4"
+                      controls
+                      playsinline
+                      class="w-full h-full object-contain bg-black"
+                    ></video>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  data-carousel-prev
+                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
+                >
+                  <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button
+                  type="button"
+                  data-carousel-next
+                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
+                >
+                  <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                <div
+                  class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
+                >
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                </div>
+              </div>
             </div>
-            <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
-            >
-              <h3 class="font-bold text-blueblack text-lg mb-1">Pembangunan</h3>
-              <p class="text-sm text-blueblack/70">
-                Pengawasan ketat, jadwal terkontrol, dan kualitas kerja terjaga.
-              </p>
-            </div>
-          </div>
-          <div
-            class="reveal relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-            style="transition-delay: 750ms"
-          >
-            <div
-              class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-ivory bg-gold text-ivory font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10"
-            >
-              6
-            </div>
-            <div
-              class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-ivoryDark"
-            >
-              <h3 class="font-bold text-blueblack text-lg mb-1">Garansi</h3>
-              <p class="text-sm text-blueblack/70">
-                Kualitas sesuai standar nasional dan komitmen purna jual.
-              </p>
+            <div data-testimony-panel="image" class="hidden">
+              <div
+                class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[95%] md:w-full md:max-w-5xl mx-auto"
+                data-carousel="image"
+              >
+                <div class="absolute inset-0">
+                  <div class="w-full h-full" data-carousel-item>
+                    <img
+                      src="./testis/K1.jpeg"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="w-full h-full hidden" data-carousel-item>
+                    <img
+                      src="./testis/K2.jpeg"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="w-full h-full hidden" data-carousel-item>
+                    <img
+                      src="./testis/K3.jpeg"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="w-full h-full hidden" data-carousel-item>
+                    <img
+                      src="./testis/K4.jpeg"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="w-full h-full hidden" data-carousel-item>
+                    <img
+                      src="./testis/K5.jpeg"
+                      alt=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  data-carousel-prev
+                  class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
+                >
+                  <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button
+                  type="button"
+                  data-carousel-next
+                  class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
+                >
+                  <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                <div
+                  class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
+                >
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                  <button
+                    type="button"
+                    data-carousel-dot
+                    class="w-2.5 h-2.5 rounded-full bg-ivory/50"
+                  ></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+    <!-- END MAIN CONTENT WRAPPER -->
 
-    <!-- PORTFOLIO SECTION -->
-    <section id="portfolio" class="py-16 md:py-24 bg-blueblack">
-      <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <h2
-            class="reveal text-3xl md:text-5xl font-extrabold text-ivory tracking-tight mb-4 uppercase"
-          >
-            Portfolio <span class="text-gold">Karya</span>
-          </h2>
-          <div
-            class="reveal w-24 h-1 bg-gold mx-auto rounded-full"
-            style="transition-delay: 200ms"
-          ></div>
-        </div>
+    <!-- MODERN STICKY REVEAL CTA AREA -->
+    <section
+      id="contact-final"
+      class="footer-reveal-section bg-blueblack overflow-hidden py-24 md:py-32"
+    >
+      <!-- Background Effects -->
+      <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-gold/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"
+      ></div>
 
-        <div class="mb-16">
-          <div class="reveal flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold uppercase">
-              01. Design Projects
-            </h3>
-            <div class="h-[1px] bg-ivory/20 flex-grow"></div>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-            >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col justify-between min-h-[50vh] md:min-h-[40vh]"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2 mb-8 group">
               <img
-                src="./images/DESIGN/1.png"
+                src="./images/langit-langit-logo.png"
                 alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                class="size-8 object-fill transition-transform group-hover:rotate-12"
               />
+              <span
+                class="font-bold text-3xl tracking-tighter text-ivory uppercase"
+                >Langitlangit<span class="text-gold">.ID</span></span
+              >
             </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 150ms"
-            >
-              <img
-                src="./images/DESIGN/2.png"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
-            >
-              <img
-                src="./images/DESIGN/3.png"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 450ms"
-            >
-              <img
-                src="./images/DESIGN/4.png"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-          </div>
-        </div>
 
-        <div class="mb-16">
-          <div class="reveal flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold uppercase">
-              02. Sipil Project
-            </h3>
-            <div class="h-[1px] bg-ivory/20 flex-grow"></div>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
+            <h2
+              class="text-4xl md:text-6xl font-black text-ivory leading-[1.1] mb-10 uppercase tracking-tighter"
             >
-              <img
-                src="./images/PROJECT SIPIL/01.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 150ms"
-            >
-              <img
-                src="./images/PROJECT SIPIL/02.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
-            >
-              <img
-                src="./images/PROJECT SIPIL/03.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 450ms"
-            >
-              <img
-                src="./images/PROJECT SIPIL/04.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-          </div>
-        </div>
+              SIAP MEMBANGUN <br />
+              <span class="text-gold italic">TANPA DRAMA?</span>
+            </h2>
 
-        <div class="mb-8">
-          <div class="reveal flex items-center gap-4 mb-6">
-            <h3 class="text-2xl font-bold text-gold uppercase">
-              03. Interior Project
-            </h3>
-            <div class="h-[1px] bg-ivory/20 flex-grow"></div>
+            <div class="flex flex-col sm:flex-row items-start gap-6">
+              <a
+                href="https://wa.me/6281222250143"
+                target="_blank"
+                class="group relative bg-gold text-ivory px-12 py-5 rounded-2xl font-bold text-lg hover:bg-goldHover transition-all flex items-center gap-3 overflow-hidden shadow-2xl shadow-gold/20"
+              >
+                <i
+                  data-lucide="message-circle"
+                  class="w-6 h-6 transition-transform group-hover:scale-110"
+                ></i>
+                Konsultasi Sekarang
+              </a>
+              <div class="flex flex-col">
+                <p
+                  class="text-ivory/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-2"
+                >
+                  Office Headquarters
+                </p>
+                <p class="text-ivory/80 text-sm leading-relaxed max-w-xs">
+                  Jl. Raya Abdul Gani No.48, RT.006/RW.001, Kalibaru, Kec.
+                  Cilodong, Kota Depok, Jawa Barat 16473
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-            >
-              <img
-                src="./images/INTERIOR/01.jpg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
+
+          <div class="grid grid-cols-2 gap-12 border-l border-white/5 pl-12">
+            <div>
+              <h4
+                class="text-ivory font-black text-xs uppercase tracking-[0.3em] mb-8 opacity-50"
+              >
+                Quick Links
+              </h4>
+              <ul class="space-y-4 text-ivory/60 text-sm font-semibold">
+                <li>
+                  <a
+                    href="#experience"
+                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
+                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
+                    Experience</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#sistem"
+                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
+                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span> Our
+                    Systems</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#portfolio"
+                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
+                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
+                    Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#gallery"
+                    class="hover:text-gold transition-colors inline-flex items-center gap-3"
+                    ><span class="h-1 w-4 bg-gold/30 rounded-full"></span>
+                    Inside Company</a
+                  >
+                </li>
+              </ul>
             </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 150ms"
-            >
-              <img
-                src="./images/INTERIOR/02.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 300ms"
-            >
-              <img
-                src="./images/INTERIOR/03.jpg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div
-              class="reveal aspect-[4/5] rounded-xl overflow-hidden bg-ivory/5 group relative"
-              style="transition-delay: 450ms"
-            >
-              <img
-                src="./images/INTERIOR/04.jpeg"
-                alt=""
-                class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-              />
+            <div>
+              <h4
+                class="text-ivory font-black text-xs uppercase tracking-[0.3em] mb-8 opacity-50"
+              >
+                Connect
+              </h4>
+              <div class="flex flex-wrap gap-4">
+                <a
+                  href="#"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                >
+                  <i data-lucide="instagram" class="size-5"></i>
+                </a>
+                <a
+                  href="#"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                >
+                  <i data-lucide="facebook" class="size-5"></i>
+                </a>
+                <a
+                  href="#"
+                  class="p-3.5 bg-white/5 rounded-2xl text-ivory/60 hover:text-gold hover:bg-white/10 transition-all border border-white/5"
+                >
+                  <i data-lucide="youtube" class="size-5"></i>
+                </a>
+              </div>
+              <div class="mt-10">
+                <p
+                  class="text-ivory/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-2"
+                >
+                  Direct Contact
+                </p>
+                <p class="text-ivory font-bold text-xl tracking-tight">
+                  +62 812 2225 0143
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Testimony Section -->
-    <section class="py-12 md:py-24 bg-ivory">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10">
-          <h2
-            class="reveal text-3xl md:text-5xl font-extrabold text-blueblack uppercase tracking-tight mb-2"
-          >
-            Our <span class="text-gold">Testimony</span>
-          </h2>
+        <div
+          class="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
           <p
-            class="reveal text-blueblack/60 font-medium"
-            style="transition-delay: 200ms"
+            class="text-[10px] text-ivory/20 font-bold uppercase tracking-widest"
           >
-            Video Cinematic & Perjalanan Project
+            &copy; 2026 Langit-Langit ID. All Rights Reserved. Crafted with
+            Excellence.
+          </p>
+          <p
+            class="text-[9px] text-ivory/20 font-black uppercase tracking-[0.4em]"
+          >
+            Creative Presentation - laladev
           </p>
         </div>
-
-        <div
-          class="reveal flex justify-center mb-8"
-          style="transition-delay: 300ms"
-        >
-          <div class="inline-flex rounded-full bg-blueblack/5 p-1">
-            <button
-              type="button"
-              data-testimony-tab="video"
-              class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full bg-blueblack text-ivory shadow-md"
-            >
-              Video
-            </button>
-            <button
-              type="button"
-              data-testimony-tab="image"
-              class="px-6 py-2 text-xs md:text-sm font-semibold rounded-full text-blueblack"
-            >
-              Chat
-            </button>
-          </div>
-        </div>
-
-        <div class="reveal space-y-6" style="transition-delay: 400ms">
-          <div data-testimony-panel="video">
-            <div
-              class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[62%] md:w-full md:max-w-5xl mx-auto"
-              data-carousel="video"
-            >
-              <div class="absolute inset-0">
-                <div class="w-full h-full" data-carousel-item>
-                  <video
-                    src="./videos/tests1.mp4"
-                    controls
-                    playsinline
-                    class="w-full h-full object-contain bg-black"
-                  ></video>
-                </div>
-                <div class="w-full h-full hidden" data-carousel-item>
-                  <video
-                    src="./videos/tests1.1.mp4"
-                    controls
-                    playsinline
-                    class="w-full h-full object-contain bg-black"
-                  ></video>
-                </div>
-              </div>
-              <button
-                type="button"
-                data-carousel-prev
-                class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
-              >
-                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-              </button>
-              <button
-                type="button"
-                data-carousel-next
-                class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
-              >
-                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-              </button>
-              <div
-                class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
-              >
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-              </div>
-            </div>
-          </div>
-          <div data-testimony-panel="image" class="hidden">
-            <div
-              class="relative rounded-3xl overflow-hidden shadow-2xl bg-blueblack aspect-video max-sm:h-[425px] w-[95%] md:w-full md:max-w-5xl mx-auto"
-              data-carousel="image"
-            >
-              <div class="absolute inset-0">
-                <div class="w-full h-full" data-carousel-item>
-                  <img
-                    src="./testis/K1.jpeg"
-                    alt=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="w-full h-full hidden" data-carousel-item>
-                  <img
-                    src="./testis/K2.jpeg"
-                    alt=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="w-full h-full hidden" data-carousel-item>
-                  <img
-                    src="./testis/K3.jpeg"
-                    alt=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="w-full h-full hidden" data-carousel-item>
-                  <img
-                    src="./testis/K4.jpeg"
-                    alt=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <div class="w-full h-full hidden" data-carousel-item>
-                  <img
-                    src="./testis/K5.jpeg"
-                    alt=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <button
-                type="button"
-                data-carousel-prev
-                class="absolute left-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
-              >
-                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-              </button>
-              <button
-                type="button"
-                data-carousel-next
-                class="absolute right-4 top-1/2 -translate-y-1/2 bg-blueblack/70 text-ivory rounded-full p-3 hover:bg-blueblack transition-colors"
-              >
-                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-              </button>
-              <div
-                class="absolute bottom-4 inset-x-0 flex justify-center gap-2"
-              >
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-                <button
-                  type="button"
-                  data-carousel-dot
-                  class="w-2.5 h-2.5 rounded-full bg-ivory/50"
-                ></button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-
-    <!-- Final CTA & Footer -->
-    <footer
-      id="cta"
-      class="bg-blueblack text-ivory pt-16 md:pt-24 pb-24 md:pb-12 border-t border-ivory/10"
-    >
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2
-          class="reveal text-2xl md:text-5xl font-extrabold mb-8 leading-tight"
-        >
-          KAMI TIM YANG SIAP SUPPORT UNTUK <br />
-          <span class="text-gold uppercase"
-            >Mewujudkan Hunian Impian Anda.</span
-          >
-        </h2>
-
-        <a
-          href="https://wa.me/6281222250143"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="reveal hidden md:inline-flex items-center justify-center gap-3 bg-gold text-ivory px-10 py-5 rounded-full text-xl font-bold hover:bg-goldHover transition-all shadow-xl shadow-gold/20"
-          style="transition-delay: 200ms"
-        >
-          <i data-lucide="message-circle" class="w-6 h-6"></i>
-          Chat via WhatsApp
-        </a>
-
-        <div
-          class="reveal mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-ivory/10 pt-8"
-          style="transition-delay: 400ms"
-        >
-          <div class="flex items-center gap-2">
-            <img
-              src="./images/langit-langit-logo.png"
-              alt=""
-              class="size-6 mt-1 object-fill"
-            />
-            <span class="font-bold text-xl tracking-tight text-ivory"
-              >Langit-Langit<span class="text-gold">.ID</span></span
-            >
-          </div>
-          <div class="flex gap-6 text-ivory/60">
-            <a href="#" class="hover:text-gold transition-colors"
-              ><i data-lucide="instagram" class="w-6 h-6"></i
-            ></a>
-            <a href="#" class="hover:text-gold transition-colors"
-              ><i data-lucide="facebook" class="w-6 h-6"></i
-            ></a>
-            <a href="#" class="hover:text-gold transition-colors"
-              ><i data-lucide="youtube" class="w-6 h-6"></i
-            ></a>
-          </div>
-        </div>
-
-        <div
-          class="reveal text-center mt-8 text-xs md:text-sm text-ivory/40"
-          style="transition-delay: 600ms"
-        >
-          <p>&copy; 2026 Langit-Langit ID. All rights reserved.</p>
-          <p class="mt-1">Creative Presentation - laladev</p>
-        </div>
-      </div>
-    </footer>
 
     <!-- STICKY MOBILE CTA BAR -->
     <div
-      class="fixed bottom-0 left-0 w-full bg-blueblack/95 backdrop-blur-md border-t border-ivory/10 p-4 z-50 md:hidden pb-safe"
+      class="fixed bottom-0 left-0 w-full bg-blueblack/95 backdrop-blur-md border-t border-white/5 p-4 z-50 md:hidden pb-safe"
     >
       <a
         href="https://wa.me/6281222250143"
@@ -1302,13 +1580,14 @@
           });
         }
 
-        // FIXED DATA ARRAYS (Exactly 6 entries per category)
+        // FIXED DATA ARRAYS
         const designData = [238, 222, 214, 168, 124, 82];
         const interiorData = [70, 76, 64, 54, 38, 22];
         const civilData = [58, 62, 48, 34, 26, 18];
 
         const populateStats = (targetId, dataArray, colorClass) => {
           const list = document.getElementById(targetId + "-list");
+          if (!list) return;
           const maxVal = Math.max(...dataArray);
           let html = "";
           dataArray.forEach((value, index) => {
@@ -1332,7 +1611,7 @@
         populateStats("interior", interiorData, "bg-chartInterior");
         populateStats("civil", civilData, "bg-chartCivil");
 
-        // Intersection Observer for Granular Reveal & Charts
+        // Intersection Observer
         const observerOptions = {
           threshold: 0.05,
           rootMargin: "0px 0px -50px 0px",
