@@ -167,14 +167,12 @@
             <a href="#experience" class="text-sm font-semibold hover:text-gold transition-colors">Experience</a>
             <a href="#sistem" class="text-sm font-semibold hover:text-gold transition-colors">Sistem</a>
             <a href="#portfolio" class="text-sm font-semibold hover:text-gold transition-colors">Portfolio</a>
-            <a
-              href="https://wa.me/6281222250143"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onclick="openConsultationModal()"
               class="bg-blueblack text-ivory px-6 py-2 rounded-full text-sm font-bold hover:bg-gold transition-all shadow-lg border border-transparent hover:border-gold/30"
             >
-              Mulai Proyek
-            </a>
+              Konsultasi Sekarang
+            </button>
           </div>
           <div class="md:hidden flex items-center">
             <button id="mobile-menu-btn" class="text-blueblack focus:outline-none p-2 bg-ivoryDark rounded-full">
@@ -811,9 +809,11 @@
           </h2>
           
           <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
-            <a href="https://wa.me/6281222250143" target="_blank" class="bg-gold text-ivory px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-goldHover transition-all shadow-lg shadow-gold/10 active:scale-95">
+            <button 
+            onclick="openConsultationModal()"
+            class="bg-gold text-ivory px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-goldHover transition-all shadow-lg shadow-gold/10 active:scale-95">
               <i data-lucide="message-circle" class="size-6"></i> Konsultasi Sekarang
-            </a>
+            </button>
             <div>
               <p class="text-ivory/40 text-[10px] font-bold uppercase mb-2 tracking-widest">Office Headquarters</p>
               <p class="text-ivory/80 text-xs md:text-sm max-w-xs leading-relaxed uppercase">
@@ -862,16 +862,280 @@
 </div>
     <!-- STICKY MOBILE CTA BAR -->
     <div class="fixed bottom-0 left-0 w-full bg-blueblack/95 backdrop-blur-md border-t border-white/5 p-4 z-50 md:hidden pb-safe">
-      <a
-        href="https://wa.me/6281222250143"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onclick="openConsultationModal()"
         class="flex items-center justify-center w-full gap-2 bg-gold text-ivory py-3.5 rounded-xl font-bold text-base shadow-lg active:scale-95 transition-transform"
       >
         <i data-lucide="message-circle" class="w-5 h-5"></i>
-        Konsultasi via WhatsApp
-      </a>
+        Konsultasi Sekarang
+      </button>
     </div>
+
+    <!-- MODAL KONSULTASI -->
+<div id="consultation-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-blueblack/80 backdrop-blur-sm" onclick="closeConsultationModal()"></div>
+  
+  <!-- Modal Content -->
+  <div id="consultation-modal-content" class="relative w-full max-w-md bg-ivory rounded-[32px] shadow-2xl p-6 md:p-8 transform scale-95 translate-y-4 transition-all duration-300">
+    
+    <!-- Close Button -->
+    <button type="button" onclick="closeConsultationModal()" class="absolute top-5 right-5 p-2 bg-blueblack/5 text-blueblack hover:bg-red-50 hover:text-red-500 rounded-full transition-colors">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h3 class="text-2xl font-extrabold text-blueblack uppercase tracking-tight mb-2">Mulai <span class="text-gold">Proyek</span></h3>
+      <p class="text-sm text-blueblack/60 font-medium">Isi data di bawah ini untuk mendapatkan estimasi dan konsultasi gratis.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="consultation-form" class="space-y-5">
+      
+      <!-- Nama -->
+      <div class="space-y-1.5">
+        <label for="nama" class="block text-xs font-bold text-blueblack uppercase tracking-widest">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" required placeholder="Cth: Budi Santoso" 
+               class="w-full bg-white border border-blueblack/10 rounded-xl px-4 py-3 text-sm text-blueblack focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all placeholder:text-blueblack/30">
+      </div>
+
+      <!-- Kota Tinggal -->
+      <div class="space-y-1.5">
+        <label for="kota" class="block text-xs font-bold text-blueblack uppercase tracking-widest">Kota Tinggal</label>
+        <input type="text" id="kota" name="kota" required placeholder="Cth: Depok, Jawa Barat" 
+               class="w-full bg-white border border-blueblack/10 rounded-xl px-4 py-3 text-sm text-blueblack focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all placeholder:text-blueblack/30">
+      </div>
+
+      <!-- No Telp / WA -->
+      <div class="space-y-1.5">
+        <label for="telp" class="block text-xs font-bold text-blueblack uppercase tracking-widest">No. WhatsApp</label>
+        <input type="tel" id="telp" name="telp" required placeholder="Cth: 081234567890" 
+               class="w-full bg-white border border-blueblack/10 rounded-xl px-4 py-3 text-sm text-blueblack focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all placeholder:text-blueblack/30">
+      </div>
+
+      <!-- Range Penghasilan (Best Practice UI: Radio Chips) -->
+      <div class="space-y-2 pt-2">
+        <label class="block text-xs font-bold text-blueblack uppercase tracking-widest">Estimasi Penghasilan / Bulan</label>
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Option 1 -->
+          <label class="cursor-pointer relative">
+            <input type="radio" name="penghasilan" value="0-5jt" required class="peer sr-only">
+            <div class="rounded-xl bg-white border border-blueblack/10 px-3 py-3 text-center text-xs md:text-sm font-bold text-blueblack/60 hover:bg-blueblack/5 peer-checked:bg-gold peer-checked:text-ivory peer-checked:border-gold transition-all shadow-sm">
+              < 5 Juta
+            </div>
+          </label>
+          <!-- Option 2 -->
+          <label class="cursor-pointer relative">
+            <input type="radio" name="penghasilan" value="5-10jt" class="peer sr-only">
+            <div class="rounded-xl bg-white border border-blueblack/10 px-3 py-3 text-center text-xs md:text-sm font-bold text-blueblack/60 hover:bg-blueblack/5 peer-checked:bg-gold peer-checked:text-ivory peer-checked:border-gold transition-all shadow-sm">
+              5 - 10 Juta
+            </div>
+          </label>
+          <!-- Option 3 -->
+          <label class="cursor-pointer relative">
+            <input type="radio" name="penghasilan" value="10-20jt" class="peer sr-only">
+            <div class="rounded-xl bg-white border border-blueblack/10 px-3 py-3 text-center text-xs md:text-sm font-bold text-blueblack/60 hover:bg-blueblack/5 peer-checked:bg-gold peer-checked:text-ivory peer-checked:border-gold transition-all shadow-sm">
+              10 - 20 Juta
+            </div>
+          </label>
+          <!-- Option 4 -->
+          <label class="cursor-pointer relative">
+            <input type="radio" name="penghasilan" value="20jt++" class="peer sr-only">
+            <div class="rounded-xl bg-white border border-blueblack/10 px-3 py-3 text-center text-xs md:text-sm font-bold text-blueblack/60 hover:bg-blueblack/5 peer-checked:bg-gold peer-checked:text-ivory peer-checked:border-gold transition-all shadow-sm">
+              > 20 Juta
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="w-full mt-6 bg-blueblack text-ivory py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-gold transition-all shadow-lg active:scale-[0.98] flex justify-center items-center gap-2 group">
+        Kirim Data Konsultasi
+        <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<!-- FLOATING CHAT DESKTOP (Hanya muncul di Desktop) -->
+<div class="hidden md:flex fixed bottom-10 right-10 z-[90] flex-row items-center justify-end gap-4 pointer-events-none">
+  
+  <!-- Tooltip / Pesan Panggilan (Manggil) -->
+  <div id="wa-tooltip" class="bg-white text-blueblack text-sm font-bold px-5 py-3.5 rounded-2xl shadow-xl border border-gray-100 opacity-0 translate-x-8 transition-all duration-500 ease-out flex items-center gap-2 pointer-events-auto cursor-pointer" onclick="openConsultationModal()">
+    Ada yang bisa dibantu? <span class="text-lg">👋</span>
+    <!-- Panah kecil ke kanan (Tail arrow) -->
+    <div class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 border-r border-t border-gray-100"></div>
+  </div>
+
+  <!-- Tombol Bulat WA -->
+  <button id="wa-button" onclick="openConsultationModal()" class="relative flex items-center justify-center w-[60px] h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_6px_25px_rgba(37,211,102,0.6)] transition-all duration-300 focus:outline-none group pointer-events-auto">
+    <!-- Animasi Ping (Riak air) -->
+    <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-0 group-hover:animate-ping"></span>
+    <!-- Icon Message -->
+    <i data-lucide="message-circle" class="w-8 h-8 relative z-10 fill-current"></i>
+  </button>
+
+</div>
+
+<!-- 1. TAMBAHKAN CDN SWEETALERT2 INI DI BAGIAN <head> HTML ANDA -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- 2. REPLACE SEMUA ISI <script> LAMA ANDA DENGAN INI -->
+<script>
+  // VARIABEL MODAL
+  const modal = document.getElementById('consultation-modal');
+  const modalContent = document.getElementById('consultation-modal-content');
+  const form = document.getElementById('consultation-form');
+
+
+
+  // FUNGSI BUKA MODAL
+  function openConsultationModal() {
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modalContent.classList.remove('scale-95', 'translate-y-4');
+    modalContent.classList.add('scale-100', 'translate-y-0');
+
+    if (typeof fbq === 'function') {
+      fbq('trackCustom', 'OpenModal');
+    }
+  }
+
+  // FUNGSI TUTUP MODAL
+  function closeConsultationModal() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modalContent.classList.remove('scale-100', 'translate-y-0');
+    modalContent.classList.add('scale-95', 'translate-y-4');
+  }
+
+  // HANDLE SUBMIT FORM
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Mencegah page reload
+
+    const formData = new FormData(form);
+    
+    // Format Tanggal YYYY-MM-DD
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+
+    const payload = {
+      date: formattedDate,
+      name: formData.get('nama'),
+      status: 'Pitching',
+      location: formData.get('kota'),
+      whatsapp_number: formData.get('telp'),
+      source: 'Landing Page',
+      income: formData.get('penghasilan'),
+      notes: 'Konsultasi dari Landing Page info.langitlangit.id',
+    };
+
+    // Tentukan URL API
+    const apiUrl = 'https://nado.langitlangit.id/app/api/leads/landing-page';
+    // const apiUrl = 'http://localhost:8000/api/leads/landing-page';
+
+      // Nomor WhatsApp Langit-Langit ID (Ganti jika perlu)
+  const WA_NUMBER = "6281222250143"; 
+  // const WA_NUMBER = "6285695703592"; 
+  
+        // JIKA BERHASIL:
+      // 1. Buat teks WhatsApp yang rapi dan profesional
+const waText = `Halo Tim Langit-Langit ID! \uD83D\uDC4B\n\nSaya ingin berkonsultasi mengenai rencana hunian saya. Berikut data singkat saya:\n\n\uD83D\uDC64 Nama: *${payload.name}*\n\uD83D\uDCCD Domisili: *${payload.location}*\n\nMohon informasi dan arahannya untuk proses selanjutnya. Terima kasih! \u2728`;
+
+    // Ubah state tombol menjadi loading
+    const btnSubmit = form.querySelector('button[type="submit"]');
+    const originalBtnText = btnSubmit.innerHTML;
+    btnSubmit.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Memproses...';
+    btnSubmit.disabled = true;
+
+    // Tampilkan SweetAlert Loading
+    Swal.fire({
+      title: 'Mengirim Data...',
+      text: 'Mohon tunggu sebentar.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    try {
+      // PROSES FETCH KE API
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json' // Penting agar Laravel membalas JSON saat error validasi
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      // Cek jika error validasi dari Laravel (Status 422)
+      if (!response.ok) {
+        if (response.status === 422 && data.errors) {
+          // Ambil pesan error pertama dari Laravel (misal: "Nomor WA sudah terdaftar")
+          const firstErrorMsg = Object.values(data.errors)[0][0];
+          throw new Error(firstErrorMsg);
+        }
+        throw new Error(data.message || 'Terjadi kesalahan pada server.');
+      }
+
+      
+      const encodedWaText = encodeURIComponent(waText);
+      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodedWaText}`;
+
+      // [+] TAMBAHKAN INI 1: Meta Pixel Track Lead (Berhasil Submit Form)
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Submit Form Konsultasi Landing Page',
+        });
+      }
+
+      // 2. Tampilkan SweetAlert Success, lalu redirect ke WA
+      Swal.fire({
+        icon: 'success',
+        title: 'Data Berhasil Terkirim!',
+        text: 'Anda akan dialihkan ke WhatsApp untuk konsultasi lebih lanjut.',
+        confirmButtonColor: '#B8860B', // Warna gold dari tema Anda
+        confirmButtonText: 'Lanjut ke WhatsApp <i class="fa fa-arrow-right"></i>',
+        timer: 3000, // Otomatis redirect setelah 3 detik jika tidak diklik
+        timerProgressBar: true,
+      }).then((result) => {
+        // Redirect ke WhatsApp
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact', {
+            content_name: 'Redirect WhatsApp'
+          });
+        }
+
+        window.open(waUrl, '_blank');
+        
+        // Reset form & tutup modal
+        form.reset();
+        closeConsultationModal();
+      });
+
+    } catch (error) {
+      // JIKA GAGAL (Tampilkan SweetAlert Error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Mengirim',
+        text: error.message,
+        confirmButtonColor: '#0A1128', // Warna blueblack
+      });
+      console.error("Error Detail:", error);
+    } finally {
+      // Kembalikan tombol ke state awal
+      btnSubmit.innerHTML = originalBtnText;
+      btnSubmit.disabled = false;
+      lucide.createIcons(); // Render ulang icon lucide pada tombol
+    }
+  });
+</script>
 
     <!-- Initialize Scripts -->
     <script>
@@ -984,6 +1248,51 @@
         }
         setupCarousel(document.querySelector('[data-carousel="video"]'));
         setupCarousel(document.querySelector('[data-carousel="image"]'));
+
+        const waTooltip = document.getElementById('wa-tooltip');
+    const waButton = document.getElementById('wa-button');
+    let hasCalledOut = false;
+    let tooltipTimer;
+
+    // Fungsi untuk memunculkan tooltip
+    function showTooltip() {
+      waTooltip.classList.remove('opacity-0', 'translate-x-8');
+      waTooltip.classList.add('opacity-100', 'translate-x-0');
+    }
+
+    // Fungsi untuk menyembunyikan tooltip
+    function hideTooltip() {
+      waTooltip.classList.remove('opacity-100', 'translate-x-0');
+      waTooltip.classList.add('opacity-0', 'translate-x-8');
+    }
+
+    // Event Listener saat User Scroll
+    window.addEventListener('scroll', () => {
+      // Jika user sudah scroll lebih dari 300px dan belum pernah dipanggil
+      if (window.scrollY > 300 && !hasCalledOut) {
+        hasCalledOut = true; // Set true agar tidak spam setiap kali scroll
+        
+        showTooltip(); // Muncul "Manggil"
+
+        // Hilang otomatis setelah 4.5 detik
+        tooltipTimer = setTimeout(() => {
+          hideTooltip();
+        }, 4500);
+      }
+    });
+
+    // Fitur Tambahan: Tetap munculkan tooltip jika user arahkan mouse (hover) ke tombol
+    waButton.addEventListener('mouseenter', () => {
+      clearTimeout(tooltipTimer);
+      showTooltip();
+    });
+
+    waButton.addEventListener('mouseleave', () => {
+      tooltipTimer = setTimeout(() => {
+        hideTooltip();
+      }, 500); // Hilang cepat setelah mouse dijauhkan
+    });
+
       });
     </script>
   </body>
