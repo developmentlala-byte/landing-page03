@@ -651,7 +651,7 @@
   </section>
 
 <!-- GALLERY SECTION: REFINED WITH SHARP CORNERS (SIKU TAJAM) -->
-  <section id="gallery" class="py-16 md:py-28 bg-ivory">
+ <section id="gallery" class="py-16 md:py-28 bg-ivory">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div class="max-w-xl">
@@ -666,47 +666,49 @@
         </p>
       </div>
 
-      <!-- Gallery Grid without Text, Icons, and Overlays -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[300px] grid-flow-dense">
-        <!-- Large Focus Item: Ditambahkan object-left untuk menggeser fokus ke kiri -->
-        <div class="reveal relative overflow-hidden rounded-none group col-span-2 row-span-2">
-          <img src="./images/galery/home.jpeg" alt="Workspace" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+      <!-- Gallery Grid: 4 Columns layout exact match to image -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6 auto-rows-[140px] md:auto-rows-[120px] lg:auto-rows-[160px]">
+        
+        <!-- Item 1 (Top Left Wide) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-2 row-span-2">
+          <img src="./images/galery/por-5.jpeg" alt="Workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
-        <!-- Item 2 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-1" style="transition-delay: 100ms">
+        <!-- Item 2 (Top Right Mid Tall) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-2 md:row-span-3" style="transition-delay: 100ms">
           <img src="./images/galery/rab.jpeg" alt="Meeting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
-        <!-- Item 3 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-2 md:row-span-1" style="transition-delay: 200ms">
-          <img src="./images/galery/por-2.jpeg" alt="Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 3 (Top Right) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-2" style="transition-delay: 200ms">
+          <img src="./images/galery/por-11.jpeg" alt="Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
-        <!-- Item 4 -->
-        <div class="reveal relative overflow-hidden rounded-none group col-span-1 md:col-span-2 row-span-1" style="transition-delay: 300ms">
-          <img src="./images/galery/por-4.jpeg" alt="Brainstorming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 4 (Bottom Left Tall) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-2 md:row-span-3" style="transition-delay: 300ms">
+          <img src="./images/galery/por-2.jpeg" alt="Brainstorming" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
-        <!-- Slot 5 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-1" style="transition-delay: 400ms">
-          <img src="./images/galery/por-1.jpeg" alt="Site Visit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 5 (Center) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-1" style="transition-delay: 400ms">
+          <img src="./images/galery/por-8.jpeg" alt="Site Visit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-[50%_80%]" />
         </div>
 
-        <!-- Slot 6 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-1" style="transition-delay: 500ms">
-          <img src="./images/galery/galery-10.jpeg" alt="Construction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 6 (Right Mid) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-1" style="transition-delay: 500ms">
+          <img src="./images/galery/por-9.jpeg" alt="Construction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 object-[50%_80%]" />
         </div>
 
-        <!-- Slot 7 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-1" style="transition-delay: 600ms">
-          <img src="./images/galery/informasi.jpeg" alt="Safety" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 7 (Bottom Center) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-1 row-span-1 md:row-span-2" style="transition-delay: 600ms">
+          <img src="./images/galery/por-4.jpeg" alt="Safety" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
 
-        <!-- Slot 8 -->
-        <div class="reveal relative overflow-hidden rounded-none group row-span-1" style="transition-delay: 700ms">
-          <img src="./images/galery/por-3.jpeg" alt="Team" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Item 8 (Bottom Right Wide) -->
+        <div class="reveal relative overflow-hidden rounded-md group col-span-2 row-span-2" style="transition-delay: 700ms">
+          <img src="./images/galery/information.jpeg" alt="Team" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
+
       </div>
     </div>
   </section>
