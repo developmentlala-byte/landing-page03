@@ -1099,7 +1099,11 @@
   
         // JIKA BERHASIL:
       // 1. Buat teks WhatsApp yang rapi dan profesional
-const waText = `Halo Tim Langit-Langit ID!\n\nSaya ingin berkonsultasi mengenai rencana hunian saya. Berikut data singkat saya:\n\n Nama: *${payload.name}*\n Domisili: *${payload.location}*\n\nMohon informasi dan arahannya untuk proses selanjutnya. Terima kasih!`;
+    const waText = `Halo Tim Langit-Langit ID!\n\nSaya ingin berkonsultasi mengenai rencana hunian saya. Berikut data singkat saya:\n\n Nama: *${payload.name}*\n Domisili: *${payload.location}*\n\nMohon informasi dan arahannya untuk proses selanjutnya. Terima kasih!`;
+
+    // 2. Deklarasi url WA di luar agar tetap bisa dipakai walau catch error 500
+    const encodedWaText = encodeURIComponent(waText);
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodedWaText}`;
 
     // Ubah state tombol menjadi loading
     const btnSubmit = form.querySelector('button[type="submit"]');
@@ -1130,19 +1134,18 @@ const waText = `Halo Tim Langit-Langit ID!\n\nSaya ingin berkonsultasi mengenai 
 
       const data = await response.json();
 
-      // Cek jika error validasi dari Laravel (Status 422)
+      // Cek jika error validasi dari Laravel (Status 422) atau lainnya
       if (!response.ok) {
         if (response.status === 422 && data.errors) {
           // Ambil pesan error pertama dari Laravel (misal: "Nomor WA sudah terdaftar")
           const firstErrorMsg = Object.values(data.errors)[0][0];
-          throw new Error(firstErrorMsg);
+          console.log('firstErrorMsg', firstErrorMsg);
+          // Beri flag khusus untuk error validasi 422
+          throw new Error('422_ERROR:' + firstErrorMsg);
         }
-        throw new Error(data.message || 'Terjadi kesalahan pada server.');
+        // Lempar error umum lainnya
+        throw new Error('OTHER_ERROR');
       }
-
-      
-      const encodedWaText = encodeURIComponent(waText);
-      const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodedWaText}`;
 
       // [+] TAMBAHKAN INI 1: Meta Pixel Track Lead (Berhasil Submit Form)
       if (typeof fbq === 'function') {
@@ -1176,15 +1179,22 @@ const waText = `Halo Tim Langit-Langit ID!\n\nSaya ingin berkonsultasi mengenai 
       });
 
     } catch (error) {
-      // JIKA GAGAL (Tampilkan SweetAlert Error)
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal Mengirim',
-        text: error.message,
-        confirmButtonColor: '#0A1128', // Warna blueblack
-      });
+      console.log('error ini keteriger', error);
+      
+      // JIKA GAGAL (Tampilkan SweetAlert HANYA UNTUK 422)
+      if (error.message && error.message.startsWith('422_ERROR:')) {
+        const actualMessage = error.message.replace('422_ERROR:', '');
+        Swal.fire({
+          icon: 'error',
+          title: 'Gagal Mengirim',
+          text: actualMessage,
+          confirmButtonColor: '#0A1128', // Warna blueblack
+        });
+      } else {
+        // UNTUK ERROR LAIN (500, putus koneksi, dsb), langsung ke WA tanpa alert error
+        Swal.close(); 
         window.open(waUrl, '_blank');
-        // closeConsultationModal();
+      }
 
       console.error("Error Detail:", error);
     } finally {
