@@ -922,7 +922,7 @@
         <div class="grid grid-cols-2 gap-3">
           <!-- Option 1 -->
           <label class="cursor-pointer relative">
-            <input type="radio" name="penghasilan" value="0-5jt" required class="peer sr-only">
+            <input type="radio" name="penghasilan" value="0-5jt" class="peer sr-only">
             <div class="rounded-xl bg-white border border-blueblack/10 px-3 py-3 text-center text-xs md:text-sm font-bold text-blueblack/60 hover:bg-blueblack/5 peer-checked:bg-gold peer-checked:text-ivory peer-checked:border-gold transition-all shadow-sm">
               < 5 Juta
             </div>
@@ -1088,6 +1088,17 @@
       notes: 'Konsultasi dari Landing Page info.langitlangit.id',
     };
 
+    // Validasi Manual Radio Button (Penghasilan)
+    if (!payload.income) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Mohon Dilengkapi',
+        text: 'Silakan pilih estimasi penghasilan Anda.',
+        confirmButtonColor: '#B8860B',
+      });
+      return;
+    }
+
     // Tentukan URL API
     const apiUrl = 'https://nado.langitlangit.id/app/api/leads/landing-page';
     // const apiUrl = 'http://localhost:8000/api/leads/landing-page';
@@ -1189,10 +1200,12 @@
           text: actualMessage,
           confirmButtonColor: '#0A1128', // Warna blueblack
         });
+        closeConsultationModal();
       } else {
         // UNTUK ERROR LAIN (500, putus koneksi, dsb), langsung ke WA tanpa alert error
         Swal.close(); 
         window.open(waUrl, '_blank');
+        closeConsultationModal();
       }
 
       console.error("Error Detail:", error);
@@ -1201,6 +1214,7 @@
       btnSubmit.innerHTML = originalBtnText;
       btnSubmit.disabled = false;
       lucide.createIcons(); // Render ulang icon lucide pada tombol
+        closeConsultationModal();
     }
   });
 </script>
